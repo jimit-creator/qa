@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
 import { FilterBar } from './components/FilterBar';
 import Stats from './components/Stats';
-import QuestionList from './components/QuestionList';
 import { useQuestions } from './hooks/useQuestions';
 import QuestionCard from './components/QuestionCard';
 import type { Question } from './types/Question';
