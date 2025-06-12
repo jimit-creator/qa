@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "question": "What is Git and why is it used?",
+    "answer": "<p class=\"text-slate-700 mb-4\">Git is a distributed version control system that helps track changes in source code during software development. It's used for:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Tracking code changes</li><li>Collaborative development</li><li>Branching and merging</li><li>Maintaining project history</li></ul><p class=\"text-slate-700 mb-2\">Example of initializing a Git repository:</p><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>git init</code></pre>",
+    "category": "Git",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 2,
+    "question": "What is the difference between <code>let</code>, <code>const</code>, and <code>var</code> in JavaScript?",
+    "answer": "<p>The main differences between <code>let</code>, <code>const</code>, and <code>var</code> are:</p><ul><li><strong>var</strong>: Function-scoped, hoisted, can be redeclared</li><li><strong>let</strong>: Block-scoped, hoisted but not initialized, cannot be redeclared</li><li><strong>const</strong>: Block-scoped, must be initialized, cannot be reassigned</li></ul><pre><code>var x = 1;\nlet y = 2;\nconst z = 3;\n\n// var can be redeclared\nvar x = 10; // OK\n\n// let cannot be redeclared\n// let y = 20; // Error\n\n// const cannot be reassigned\n// z = 30; // Error</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 3,
+    "question": "Explain the concept of <strong>closures</strong> in JavaScript.",
+    "answer": "A <strong>closure</strong> is the combination of a function and the lexical environment within which that function was declared. It allows a function to access variables from its outer scope even after the outer function has returned.",
+    "category": "JavaScript",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 4,
+    "question": "What is the <strong>Virtual DOM</strong> in React?",
+    "answer": "<p>The <strong>Virtual DOM</strong> is a lightweight copy of the actual DOM. React uses it to improve performance by minimizing direct manipulation of the DOM. It compares the virtual DOM with the real DOM and only updates what's necessary.</p><ul><li>Creates a virtual representation of the UI</li><li>Compares with previous virtual DOM</li><li>Updates only the necessary parts of the real DOM</li><li>Improves performance by reducing DOM operations</li></ul>",
+    "category": "React",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 5,
+    "question": "What are <strong>React Hooks</strong>?",
+    "answer": "<p><strong>Hooks</strong> are functions that let you use state and other React features in functional components. They were introduced in React 16.8.</p><ul><li><strong>useState</strong>: Manages local component state</li><li><strong>useEffect</strong>: Handles side effects and lifecycle methods</li><li><strong>useContext</strong>: Consumes React context</li><li><strong>useReducer</strong>: Manages complex state logic</li></ul><pre><code>import React, { useState, useEffect } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    document.title = `Count: ${count}`;\n  }, [count]);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 6,
+    "question": "What is <strong>TypeScript</strong> and why use it?",
+    "answer": "<p><strong>TypeScript</strong> is a typed superset of JavaScript that compiles to plain JavaScript. It adds static typing to JavaScript, which helps catch errors during development and provides better tooling support.</p><ul><li>Static type checking</li><li>Better IDE support with autocompletion</li><li>Enhanced code maintainability</li><li>Improved team collaboration</li><li>Better documentation through types</li></ul>",
+    "category": "TypeScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 7,
+    "question": "What are React's <strong>lifecycle methods</strong>?",
+    "answer": "<strong>Lifecycle methods</strong> are special methods in class components that allow you to run code at specific points in a component's lifecycle. They include mounting (<code>constructor</code>, <code>render</code>, <code>componentDidMount</code>), updating (<code>shouldComponentUpdate</code>, <code>render</code>, <code>componentDidUpdate</code>), and unmounting (<code>componentWillUnmount</code>).",
+    "category": "React",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 8,
+    "question": "What is the difference between <code>==</code> and <code>===</code> in JavaScript?",
+    "answer": "<code>==</code> performs type coercion before comparison, while <code>===</code> checks both value and type without coercion. <code>===</code> is generally preferred as it's more predictable and helps prevent bugs.",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 9,
+    "question": "Explain the concept of React Hooks and when to use them",
+    "answer": "<p class=\"text-slate-700 mb-4\">React Hooks are functions that let you use state and other React features in functional components. They were introduced in React 16.8.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Common Hooks:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>useState</strong>: Manages local component state</li><li><strong>useEffect</strong>: Handles side effects and lifecycle methods</li><li><strong>useContext</strong>: Consumes React context</li><li><strong>useReducer</strong>: Manages complex state logic</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>import React, { useState, useEffect } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    document.title = `Count: ${count}`;\n  }, [count]);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 10,
+    "question": "What are TypeScript interfaces and how do they differ from types?",
+    "answer": "<p class=\"text-slate-700 mb-4\">TypeScript interfaces and type aliases are both ways to define custom types, but they have some key differences:</p><h4 class=\"font-semibold text-slate-900 mb-2\">Interfaces:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Can be extended and implemented</li><li>Support declaration merging</li><li>Better for defining object shapes</li></ul><h4 class=\"font-semibold text-slate-900 mb-2\">Type Aliases:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>More flexible (unions, primitives, tuples)</li><li>Cannot be extended with extends keyword</li><li>No declaration merging</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>// Interface\ninterface User {\n  name: string;\n  age: number;\n}\n\ninterface User {\n  email: string; // Declaration merging\n}\n\n// Type alias\ntype Status = 'loading' | 'success' | 'error';\n\ntype ApiResponse<T> = {\n  data: T;\n  status: Status;\n};</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 11,
+    "question": "Implement a binary search algorithm and explain its time complexity",
+    "answer": "<p class=\"text-slate-700 mb-4\">Binary search is an efficient algorithm for finding an item from a sorted list. It works by repeatedly dividing the search interval in half.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Time Complexity: O(log n)</h4><p class=\"text-slate-700 mb-4\">This is because we eliminate half of the remaining elements in each step.</p><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>function binarySearch(arr: number[], target: number): number {\n  let left = 0;\n  let right = arr.length - 1;\n  \n  while (left <= right) {\n    const mid = Math.floor((left + right) / 2);\n    \n    if (arr[mid] === target) {\n      return mid; // Found the target\n    }\n    \n    if (arr[mid] < target) {\n      left = mid + 1; // Search right half\n    } else {\n      right = mid - 1; // Search left half\n    }\n  }\n  \n  return -1; // Target not found\n}\n\n// Example usage\nconst sortedArray = [1, 3, 5, 7, 9, 11, 13, 15];\nconsole.log(binarySearch(sortedArray, 7)); // Output: 3</code></pre>",
+    "category": "Algorithms",
+    "difficulty": "Advanced",
+    "views": 2800
+  },
+  {
+    "id": 12,
+    "question": "What is the CSS Box Model and how does it work?",
+    "answer": "<p class=\"text-slate-700 mb-4\">The CSS Box Model describes how the different parts of an element's box are laid out. Every element is represented as a rectangular box with four areas:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>Content</strong>: The actual content of the element</li><li><strong>Padding</strong>: Space between content and border</li><li><strong>Border</strong>: The border around the padding</li><li><strong>Margin</strong>: Space outside the border</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>.box {\n  width: 200px;\n  height: 100px;\n  padding: 20px;\n  border: 5px solid black;\n  margin: 10px;\n}\n\n/* Total width = width + padding-left + padding-right + border-left + border-right\n   Total width = 200 + 20 + 20 + 5 + 5 = 250px */</code></pre><p class=\"text-slate-700 mb-2\">Use <code class=\"bg-slate-100 px-2 py-1 rounded\">box-sizing: border-box</code> to include padding and border in the element's total width and height.</p>",
+    "category": "CSS",
+    "difficulty": "Beginner",
+    "views": 1500
+  },
+  {
+    "id": 13,
+    "question": "What is Node.js and what are its key features?",
+    "answer": "<p class=\"text-slate-700 mb-4\">Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript on the server side.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Key Features:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>Asynchronous and Event-Driven</strong>: Non-blocking I/O operations</li><li><strong>Single-Threaded</strong>: Uses an event loop for handling requests</li><li><strong>Cross-Platform</strong>: Runs on various operating systems</li><li><strong>NPM</strong>: Large ecosystem of packages</li><li><strong>Fast Execution</strong>: Built on V8 engine</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>// Simple HTTP server example\nconst http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('Hello, World!');\n});\n\nserver.listen(3000, () => {\n  console.log('Server running on port 3000');\n});</code></pre>",
+    "category": "Node.js",
+    "difficulty": "Beginner",
+    "views": 2100
+  },
+  {
+    "id": 14,
+    "question": "What is database normalization and why is it important?",
+    "answer": "<p class=\"text-slate-700 mb-4\">Database normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing large tables into smaller, related tables.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Normal Forms:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>1NF</strong>: Eliminate duplicate columns, create separate tables for related data</li><li><strong>2NF</strong>: Remove partial dependencies on composite primary keys</li><li><strong>3NF</strong>: Remove transitive dependencies</li></ul><h4 class=\"font-semibold text-slate-900 mb-2\">Benefits:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Reduces data redundancy</li><li>Improves data integrity</li><li>Makes database maintenance easier</li><li>Saves storage space</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>-- Before normalization (1 table)\nCREATE TABLE orders (\n  order_id INT,\n  customer_name VARCHAR(100),\n  customer_email VARCHAR(100),\n  product_name VARCHAR(100),\n  product_price DECIMAL(10,2)\n);\n\n-- After normalization (3 tables)\nCREATE TABLE customers (\n  customer_id INT PRIMARY KEY,\n  name VARCHAR(100),\n  email VARCHAR(100)\n);\n\nCREATE TABLE products (\n  product_id INT PRIMARY KEY,\n  name VARCHAR(100),\n  price DECIMAL(10,2)\n);\n\nCREATE TABLE orders (\n  order_id INT PRIMARY KEY,\n  customer_id INT,\n  product_id INT,\n  FOREIGN KEY (customer_id) REFERENCES customers(customer_id),\n  FOREIGN KEY (product_id) REFERENCES products(product_id)\n);</code></pre>",
+    "category": "Database",
+    "difficulty": "Intermediate",
+    "views": 1650
+  },
+  {
+    "id": 15,
+    "question": "Explain the concept of <strong>promises</strong> in JavaScript.",
+    "answer": "A <strong>Promise</strong> is an object representing the eventual completion or failure of an asynchronous operation. It has three states: <code>pending</code>, <code>fulfilled</code>, and <code>rejected</code>. Promises help handle asynchronous operations more elegantly than callbacks.",
+    "category": "JavaScript",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 16,
+    "question": "What are the best practices for writing clean and maintainable code?",
+    "answer": "<p class=\"text-slate-700 mb-4\">Writing clean and maintainable code is crucial for long-term project success. Here are key practices:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Use meaningful variable and function names</li><li>Follow the DRY (Don't Repeat Yourself) principle</li><li>Write small, focused functions</li><li>Add clear comments and documentation</li><li>Follow consistent code formatting</li><li>Write unit tests</li><li>Use version control effectively</li></ul>",
+    "category": "General",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 17,
+    "question": "What is Angular and how does it differ from React?",
+    "answer": "<p class=\"text-slate-700 mb-4\">Angular is a comprehensive framework for building web applications, while React is a library for building user interfaces. Key differences include:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Angular is a full-featured framework with built-in tools</li><li>React is more flexible and lightweight</li><li>Angular uses TypeScript by default</li><li>Angular has a steeper learning curve</li><li>Angular uses two-way data binding</li><li>React uses one-way data flow</li></ul>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 18,
+    "question": "What are the main AWS services and their use cases?",
+    "answer": "<p class=\"text-slate-700 mb-4\">Amazon Web Services (AWS) offers a wide range of cloud services. Here are some key services:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>EC2</strong>: Virtual servers in the cloud</li><li><strong>S3</strong>: Object storage service</li><li><strong>Lambda</strong>: Serverless computing</li><li><strong>RDS</strong>: Managed relational databases</li><li><strong>DynamoDB</strong>: NoSQL database service</li><li><strong>CloudFront</strong>: Content delivery network</li><li><strong>Route 53</strong>: DNS web service</li></ul>",
+    "category": "AWS",
+    "difficulty": "Intermediate"
+  }
+]
