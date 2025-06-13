@@ -1,132 +1,170 @@
 [
   {
     "id": 1,
-    "question": "What is Git and why is it used?",
-    "answer": "<p class=\"text-slate-700 mb-4\">Git is a distributed version control system that helps track changes in source code during software development. It's used for:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Tracking code changes</li><li>Collaborative development</li><li>Branching and merging</li><li>Maintaining project history</li></ul><p class=\"text-slate-700 mb-2\">Example of initializing a Git repository:</p><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>git init</code></pre>",
-    "category": "Git",
+    "question": "What is the difference between <code>let</code>, <code>const</code>, and <code>var</code> in JavaScript?",
+    "answer": "<p>The main differences between <code>let</code>, <code>const</code>, and <code>var</code> are:</p><ul><li><strong>var</strong>: Function-scoped, hoisted, can be redeclared</li><li><strong>let</strong>: Block-scoped, hoisted but not initialized, cannot be redeclared</li><li><strong>const</strong>: Block-scoped, must be initialized, cannot be reassigned</li></ul><pre><code>var x = 1;\nlet y = 2;\nconst z = 3;\n\nvar x = 10;\n// let y = 20;\n// z = 30;</code></pre>",
+    "category": "JavaScript",
     "difficulty": "Beginner"
   },
   {
     "id": 2,
-    "question": "What is the difference between <code>let</code>, <code>const</code>, and <code>var</code> in JavaScript?",
-    "answer": "<p>The main differences between <code>let</code>, <code>const</code>, and <code>var</code> are:</p><ul><li><strong>var</strong>: Function-scoped, hoisted, can be redeclared</li><li><strong>let</strong>: Block-scoped, hoisted but not initialized, cannot be redeclared</li><li><strong>const</strong>: Block-scoped, must be initialized, cannot be reassigned</li></ul><pre><code>var x = 1;\nlet y = 2;\nconst z = 3;\n\n// var can be redeclared\nvar x = 10; // OK\n\n// let cannot be redeclared\n// let y = 20; // Error\n\n// const cannot be reassigned\n// z = 30; // Error</code></pre>",
-    "category": "JavaScript",
+    "question": "What is React?",
+    "answer": "<p>React is a JavaScript library used for building user interfaces, especially single-page applications where content updates without refreshing the page.</p><pre><code>function App() {\n  return &lt;h1&gt;Hello, React!&lt;/h1&gt;;\n}</code></pre>",
+    "category": "React",
     "difficulty": "Beginner"
   },
   {
     "id": 3,
-    "question": "Explain the concept of <strong>closures</strong> in JavaScript.",
-    "answer": "A <strong>closure</strong> is the combination of a function and the lexical environment within which that function was declared. It allows a function to access variables from its outer scope even after the outer function has returned.",
-    "category": "JavaScript",
-    "difficulty": "Intermediate"
+    "question": "What are components in React?",
+    "answer": "<p>Components are like building blocks of a React app. They are reusable pieces of code that return HTML (JSX).</p><ul><li><strong>Functional components</strong></li><li><strong>Class components</strong></li></ul><pre><code>function Welcome() {\n  return &lt;h2&gt;Welcome to React!&lt;/h2&gt;;\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 4,
-    "question": "What is the <strong>Virtual DOM</strong> in React?",
-    "answer": "<p>The <strong>Virtual DOM</strong> is a lightweight copy of the actual DOM. React uses it to improve performance by minimizing direct manipulation of the DOM. It compares the virtual DOM with the real DOM and only updates what's necessary.</p><ul><li>Creates a virtual representation of the UI</li><li>Compares with previous virtual DOM</li><li>Updates only the necessary parts of the real DOM</li><li>Improves performance by reducing DOM operations</li></ul>",
+    "question": "What is JSX?",
+    "answer": "<p>JSX stands for JavaScript XML. It allows you to write HTML inside JavaScript.</p><pre><code>const element = &lt;h1&gt;Hello JSX!&lt;/h1&gt;;</code></pre>",
     "category": "React",
-    "difficulty": "Intermediate"
+    "difficulty": "Beginner"
   },
   {
     "id": 5,
-    "question": "What are <strong>React Hooks</strong>?",
-    "answer": "<p><strong>Hooks</strong> are functions that let you use state and other React features in functional components. They were introduced in React 16.8.</p><ul><li><strong>useState</strong>: Manages local component state</li><li><strong>useEffect</strong>: Handles side effects and lifecycle methods</li><li><strong>useContext</strong>: Consumes React context</li><li><strong>useReducer</strong>: Manages complex state logic</li></ul><pre><code>import React, { useState, useEffect } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    document.title = `Count: ${count}`;\n  }, [count]);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}</code></pre>",
+    "question": "What is the props and state?",
+    "answer": "<p>In <strong>React</strong>, <code>props</code> and <code>state</code> are two core concepts used to manage and pass data in components.</p><h4>props</h4><p>Props are used to pass data from parent to child components.</p><p><strong>Key points:</strong></p><ul><li>Read-only (immutable inside the component receiving them)</li><li>Passed from outside the component</li><li>Used to configure a component</li></ul><pre><code>function App() {\n  return &lt;Welcome name=\"Jimit\" /&gt;;\n}\n\nfunction Welcome(props) {\n  return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;\n}</code></pre><h4>state</h4><p><strong>State</strong> is used to <strong>manage data inside a component</strong> that can change over time.</p><p><strong>Key points:</strong></p><ul><li>Mutable (can be updated using useState in functional components)</li><li>Managed inside the component</li><li>Used for interactive or dynamic data</li></ul><pre><code>import { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    &lt;&gt;\n      &lt;p&gt;You clicked {count} times&lt;/p&gt;\n      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt;\n    &lt;/&gt;\n  );\n}</code></pre>",
     "category": "React",
     "difficulty": "Beginner"
   },
   {
     "id": 6,
-    "question": "What is <strong>TypeScript</strong> and why use it?",
-    "answer": "<p><strong>TypeScript</strong> is a typed superset of JavaScript that compiles to plain JavaScript. It adds static typing to JavaScript, which helps catch errors during development and provides better tooling support.</p><ul><li>Static type checking</li><li>Better IDE support with autocompletion</li><li>Enhanced code maintainability</li><li>Improved team collaboration</li><li>Better documentation through types</li></ul>",
-    "category": "TypeScript",
+    "question": "What is useState?",
+    "answer": "<p><code>useState</code> is a <strong>React Hook</strong> that lets you add <strong>state</strong> to a functional component.</p><pre><code>import { useState } from 'react';\n\nfunction Example() {\n  const [name, setName] = useState(\"John\");\n  return &lt;h1&gt;Hello, {name}!&lt;/h1&gt;;\n}</code></pre>",
+    "category": "React",
     "difficulty": "Beginner"
   },
   {
     "id": 7,
-    "question": "What are React's <strong>lifecycle methods</strong>?",
-    "answer": "<strong>Lifecycle methods</strong> are special methods in class components that allow you to run code at specific points in a component's lifecycle. They include mounting (<code>constructor</code>, <code>render</code>, <code>componentDidMount</code>), updating (<code>shouldComponentUpdate</code>, <code>render</code>, <code>componentDidUpdate</code>), and unmounting (<code>componentWillUnmount</code>).",
+    "question": "What is useEffect?",
+    "answer": "<p><code>useEffect</code> is a hook that lets you perform <strong>side effects</strong> (like data fetching, timers) in functional components.</p><pre><code>import { useEffect } from 'react';\n\nfunction Example() {\n  useEffect(() =&gt; {\n    console.log(\"Component mounted!\");\n    return () =&gt; {\n      console.log(\"Component will unmount!\");\n    };\n  }, []);\n  return &lt;div&gt;Example Component&lt;/div&gt;;\n}</code></pre>",
     "category": "React",
-    "difficulty": "Advanced"
+    "difficulty": "Beginner"
   },
   {
     "id": 8,
-    "question": "What is the difference between <code>==</code> and <code>===</code> in JavaScript?",
-    "answer": "<code>==</code> performs type coercion before comparison, while <code>===</code> checks both value and type without coercion. <code>===</code> is generally preferred as it's more predictable and helps prevent bugs.",
-    "category": "JavaScript",
+    "question": "What is the virtual DOM?",
+    "answer": "<p>Virtual DOM is a <strong>lightweight copy</strong> of the real DOM. React uses it to <strong>optimize updates</strong>. It compares changes (called <strong>diffing</strong>) and updates only the part that changed.</p>",
+    "category": "React",
     "difficulty": "Beginner"
   },
   {
     "id": 9,
-    "question": "Explain the concept of React Hooks and when to use them",
-    "answer": "<p class=\"text-slate-700 mb-4\">React Hooks are functions that let you use state and other React features in functional components. They were introduced in React 16.8.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Common Hooks:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>useState</strong>: Manages local component state</li><li><strong>useEffect</strong>: Handles side effects and lifecycle methods</li><li><strong>useContext</strong>: Consumes React context</li><li><strong>useReducer</strong>: Manages complex state logic</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>import React, { useState, useEffect } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    document.title = `Count: ${count}`;\n  }, [count]);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}</code></pre>",
+    "question": "What is the difference between controlled and uncontrolled components?",
+    "answer": "<p><strong>Controlled Component:</strong> React handles the form input.</p><pre><code>function ControlledForm() {\n  const [input, setInput] = useState(\"\");\n  return &lt;input value={input} onChange={e =&gt; setInput(e.target.value)} /&gt;;\n}</code></pre><p><strong>Uncontrolled Component:</strong> DOM handles the form input using <code>ref</code>.</p><pre><code>function UncontrolledForm() {\n  const inputRef = useRef();\n  const handleSubmit = () =&gt; {\n    alert(inputRef.current.value);\n  };\n  return (\n    &lt;&gt;\n      &lt;input type=\"text\" ref={inputRef} /&gt;\n      &lt;button onClick={handleSubmit}&gt;Submit&lt;/button&gt;\n    &lt;/&gt;\n  );\n}</code></pre>",
     "category": "React",
-    "difficulty": "Advanced"
+    "difficulty": "Beginner"
   },
   {
     "id": 10,
-    "question": "What are TypeScript interfaces and how do they differ from types?",
-    "answer": "<p class=\"text-slate-700 mb-4\">TypeScript interfaces and type aliases are both ways to define custom types, but they have some key differences:</p><h4 class=\"font-semibold text-slate-900 mb-2\">Interfaces:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Can be extended and implemented</li><li>Support declaration merging</li><li>Better for defining object shapes</li></ul><h4 class=\"font-semibold text-slate-900 mb-2\">Type Aliases:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>More flexible (unions, primitives, tuples)</li><li>Cannot be extended with extends keyword</li><li>No declaration merging</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>// Interface\ninterface User {\n  name: string;\n  age: number;\n}\n\ninterface User {\n  email: string; // Declaration merging\n}\n\n// Type alias\ntype Status = 'loading' | 'success' | 'error';\n\ntype ApiResponse<T> = {\n  data: T;\n  status: Status;\n};</code></pre>",
-    "category": "TypeScript",
-    "difficulty": "Intermediate"
+    "question": "What are keys in React?",
+    "answer": "<p>Keys help React identify which items in a list are changed or removed. They should be <strong>unique</strong>.</p><pre><code>function TodoList() {\n  const items = [\n    { id: 1, text: 'Learn React' },\n    { id: 2, text: 'Build an app' }\n  ];\n  return (\n    &lt;ul&gt;\n      {items.map(item =&gt; (\n        &lt;li key={item.id}&gt;{item.text}&lt;/li&gt;\n      ))}\n    &lt;/ul&gt;\n  );\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 11,
-    "question": "Implement a binary search algorithm and explain its time complexity",
-    "answer": "<p class=\"text-slate-700 mb-4\">Binary search is an efficient algorithm for finding an item from a sorted list. It works by repeatedly dividing the search interval in half.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Time Complexity: O(log n)</h4><p class=\"text-slate-700 mb-4\">This is because we eliminate half of the remaining elements in each step.</p><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>function binarySearch(arr: number[], target: number): number {\n  let left = 0;\n  let right = arr.length - 1;\n  \n  while (left <= right) {\n    const mid = Math.floor((left + right) / 2);\n    \n    if (arr[mid] === target) {\n      return mid; // Found the target\n    }\n    \n    if (arr[mid] < target) {\n      left = mid + 1; // Search right half\n    } else {\n      right = mid - 1; // Search left half\n    }\n  }\n  \n  return -1; // Target not found\n}\n\n// Example usage\nconst sortedArray = [1, 3, 5, 7, 9, 11, 13, 15];\nconsole.log(binarySearch(sortedArray, 7)); // Output: 3</code></pre>",
-    "category": "Algorithms",
-    "difficulty": "Advanced",
-    "views": 2800
+    "question": "What is lifting state up?",
+    "answer": "<p>When <strong>two components need to share data</strong>, the state is moved to their <strong>common parent</strong>.</p>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 12,
-    "question": "What is the CSS Box Model and how does it work?",
-    "answer": "<p class=\"text-slate-700 mb-4\">The CSS Box Model describes how the different parts of an element's box are laid out. Every element is represented as a rectangular box with four areas:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>Content</strong>: The actual content of the element</li><li><strong>Padding</strong>: Space between content and border</li><li><strong>Border</strong>: The border around the padding</li><li><strong>Margin</strong>: Space outside the border</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>.box {\n  width: 200px;\n  height: 100px;\n  padding: 20px;\n  border: 5px solid black;\n  margin: 10px;\n}\n\n/* Total width = width + padding-left + padding-right + border-left + border-right\n   Total width = 200 + 20 + 20 + 5 + 5 = 250px */</code></pre><p class=\"text-slate-700 mb-2\">Use <code class=\"bg-slate-100 px-2 py-1 rounded\">box-sizing: border-box</code> to include padding and border in the element's total width and height.</p>",
-    "category": "CSS",
-    "difficulty": "Beginner",
-    "views": 1500
+    "question": "What is React Router?",
+    "answer": "<p>React Router allows navigation between different pages in a React app without reloading the page.</p><pre><code>&lt;Route path=\"/about\" element={&lt;About /&gt;} /&gt;</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 13,
-    "question": "What is Node.js and what are its key features?",
-    "answer": "<p class=\"text-slate-700 mb-4\">Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript on the server side.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Key Features:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>Asynchronous and Event-Driven</strong>: Non-blocking I/O operations</li><li><strong>Single-Threaded</strong>: Uses an event loop for handling requests</li><li><strong>Cross-Platform</strong>: Runs on various operating systems</li><li><strong>NPM</strong>: Large ecosystem of packages</li><li><strong>Fast Execution</strong>: Built on V8 engine</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>// Simple HTTP server example\nconst http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('Hello, World!');\n});\n\nserver.listen(3000, () => {\n  console.log('Server running on port 3000');\n});</code></pre>",
-    "category": "Node.js",
-    "difficulty": "Beginner",
-    "views": 2100
+    "question": "What is Context API?",
+    "answer": "<p>Context API lets you pass data deeply through the component tree without manually passing props at every level.</p><pre><code>import React, { createContext, useContext, useState } from 'react';\n\nconst ThemeContext = createContext();\n\nfunction App() {\n  const [theme, setTheme] = useState('light');\n  return (\n    &lt;ThemeContext.Provider value={{ theme, setTheme }}&gt;\n      &lt;Toolbar /&gt;\n    &lt;/ThemeContext.Provider&gt;\n  );\n}\n\nfunction Toolbar() {\n  return (\n    &lt;div&gt;\n      &lt;ThemedButton /&gt;\n    &lt;/div&gt;\n  );\n}\n\nfunction ThemedButton() {\n  const { theme, setTheme } = useContext(ThemeContext);\n  return (\n    &lt;button\n      onClick={() =&gt; setTheme(theme === 'light' ? 'dark' : 'light')}\n      style={{\n        background: theme === 'light' ? '#fff' : '#333',\n        color: theme === 'light' ? '#000' : '#fff'\n      }}\n    &gt;\n      Current theme: {theme}\n    &lt;/button&gt;\n  );\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 14,
-    "question": "What is database normalization and why is it important?",
-    "answer": "<p class=\"text-slate-700 mb-4\">Database normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing large tables into smaller, related tables.</p><h4 class=\"font-semibold text-slate-900 mb-2\">Normal Forms:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>1NF</strong>: Eliminate duplicate columns, create separate tables for related data</li><li><strong>2NF</strong>: Remove partial dependencies on composite primary keys</li><li><strong>3NF</strong>: Remove transitive dependencies</li></ul><h4 class=\"font-semibold text-slate-900 mb-2\">Benefits:</h4><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Reduces data redundancy</li><li>Improves data integrity</li><li>Makes database maintenance easier</li><li>Saves storage space</li></ul><pre class=\"bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto\"><code>-- Before normalization (1 table)\nCREATE TABLE orders (\n  order_id INT,\n  customer_name VARCHAR(100),\n  customer_email VARCHAR(100),\n  product_name VARCHAR(100),\n  product_price DECIMAL(10,2)\n);\n\n-- After normalization (3 tables)\nCREATE TABLE customers (\n  customer_id INT PRIMARY KEY,\n  name VARCHAR(100),\n  email VARCHAR(100)\n);\n\nCREATE TABLE products (\n  product_id INT PRIMARY KEY,\n  name VARCHAR(100),\n  price DECIMAL(10,2)\n);\n\nCREATE TABLE orders (\n  order_id INT PRIMARY KEY,\n  customer_id INT,\n  product_id INT,\n  FOREIGN KEY (customer_id) REFERENCES customers(customer_id),\n  FOREIGN KEY (product_id) REFERENCES products(product_id)\n);</code></pre>",
-    "category": "Database",
-    "difficulty": "Intermediate",
-    "views": 1650
+    "question": "What are fragments in React?",
+    "answer": "<p>Fragments let you return multiple elements without adding extra DOM nodes.</p><pre><code>&lt;&gt;\n  &lt;h1&gt;Title&lt;/h1&gt;\n  &lt;p&gt;Description&lt;/p&gt;\n&lt;/&gt;</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 15,
-    "question": "Explain the concept of <strong>promises</strong> in JavaScript.",
-    "answer": "A <strong>Promise</strong> is an object representing the eventual completion or failure of an asynchronous operation. It has three states: <code>pending</code>, <code>fulfilled</code>, and <code>rejected</code>. Promises help handle asynchronous operations more elegantly than callbacks.",
-    "category": "JavaScript",
-    "difficulty": "Intermediate"
+    "question": "What is the useEffect and useLayoutEffect?",
+    "answer": "<p>Both are <strong>React hooks</strong> used for <strong>side effects</strong> (like fetching data, DOM updates, timers), but they run at <strong>different times</strong> in the component lifecycle.</p><h2><code>useEffect</code></h2><blockquote><p>Runs <strong>after the component renders</strong> and <strong>after the DOM is painted</strong>.</p></blockquote><p>Common use cases:</p><ul><li><p>Fetching data</p></li><li><p>Subscribing to events</p></li><li><p>Setting up timers</p></li></ul><pre><code>import { useEffect, useState } from 'react';\n\nfunction Example() {\n  const [count, setCount] = useState(0);\n  useEffect(() =&gt; {\n    console.log('useEffect: DOM updated');\n  }, [count]);\n  return (\n    &lt;button onClick={() =&gt; setCount(count + 1)}&gt;\n      Clicked {count}\n    &lt;/button&gt;\n  );\n}</code></pre><h2><code>useLayoutEffect</code></h2><blockquote><p>Runs <strong>after rendering</strong> but <strong>before the DOM is painted</strong> on the screen.</p></blockquote><p>Use it when:</p><ul><li><p>You need to <strong>measure layout</strong> or <strong>make DOM changes</strong> that must <strong>block painting</strong> (e.g. scroll, size, position).</p></li></ul><pre><code>import { useLayoutEffect, useRef } from 'react';\n\nfunction LayoutExample() {\n  const boxRef = useRef();\n  useLayoutEffect(() =&gt; {\n    boxRef.current.style.backgroundColor = 'yellow';\n    console.log('useLayoutEffect: DOM updated before paint');\n  }, []);\n  return &lt;div ref={boxRef}&gt;Hello&lt;/div&gt;;\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 16,
-    "question": "What are the best practices for writing clean and maintainable code?",
-    "answer": "<p class=\"text-slate-700 mb-4\">Writing clean and maintainable code is crucial for long-term project success. Here are key practices:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Use meaningful variable and function names</li><li>Follow the DRY (Don't Repeat Yourself) principle</li><li>Write small, focused functions</li><li>Add clear comments and documentation</li><li>Follow consistent code formatting</li><li>Write unit tests</li><li>Use version control effectively</li></ul>",
-    "category": "General",
+    "question": "What is useRef?",
+    "answer": "<p><code>useRef</code> is a hook to <strong>store a reference</strong> to a DOM element or a value that persists between renders.</p><pre><code>function Form() {\n  const inputRef = React.useRef();\n  const handleSubmit = () =&gt; {\n    alert(inputRef.current.value);\n  };\n  return (\n    &lt;&gt;\n      &lt;input type=\"text\" ref={inputRef} /&gt;\n      &lt;button onClick={handleSubmit}&gt;Submit&lt;/button&gt;\n    &lt;/&gt;\n  );\n}</code></pre>",
+    "category": "React",
     "difficulty": "Beginner"
   },
   {
     "id": 17,
-    "question": "What is Angular and how does it differ from React?",
-    "answer": "<p class=\"text-slate-700 mb-4\">Angular is a comprehensive framework for building web applications, while React is a library for building user interfaces. Key differences include:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li>Angular is a full-featured framework with built-in tools</li><li>React is more flexible and lightweight</li><li>Angular uses TypeScript by default</li><li>Angular has a steeper learning curve</li><li>Angular uses two-way data binding</li><li>React uses one-way data flow</li></ul>",
-    "category": "Angular",
-    "difficulty": "Intermediate"
+    "question": "What is React.memo?",
+    "answer": "<p><code>React.memo</code> is used to <strong>prevent unnecessary re-renders</strong> of a component if its props haven't changed.</p><pre><code>const MyComponent = React.memo(function MyComponent({ name }) {\n  return &lt;p&gt;{name}&lt;/p&gt;;\n});</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   },
   {
     "id": 18,
-    "question": "What are the main AWS services and their use cases?",
-    "answer": "<p class=\"text-slate-700 mb-4\">Amazon Web Services (AWS) offers a wide range of cloud services. Here are some key services:</p><ul class=\"list-disc pl-6 mb-4 text-slate-700\"><li><strong>EC2</strong>: Virtual servers in the cloud</li><li><strong>S3</strong>: Object storage service</li><li><strong>Lambda</strong>: Serverless computing</li><li><strong>RDS</strong>: Managed relational databases</li><li><strong>DynamoDB</strong>: NoSQL database service</li><li><strong>CloudFront</strong>: Content delivery network</li><li><strong>Route 53</strong>: DNS web service</li></ul>",
-    "category": "AWS",
-    "difficulty": "Intermediate"
+    "question": "What is the difference between useCallback and useMemo?",
+    "answer": "<p>Both <code>useCallback</code> and <code>useMemo</code> are <strong>performance optimization hooks</strong> in React. They help avoid unnecessary re-renders or recalculations.</p><h2><code>useCallback</code></h2><blockquote><p><code>useCallback</code> <strong>memoizes a function</strong> — returns the <strong>same function instance</strong> unless its dependencies change.</p></blockquote><p><strong>Use when:</strong> You pass functions to child components and want to <strong>prevent re-creating them on every render</strong>.</p><pre><code>import { useCallback, useState } from 'react';\n\nfunction Parent() {\n  const [count, setCount] = useState(0);\n  const handleClick = useCallback(() =&gt; {\n    console.log('Button clicked');\n  }, []);\n  return (\n    &lt;&gt;\n      &lt;Child onClick={handleClick} /&gt;\n      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Re-render Parent&lt;/button&gt;\n    &lt;/&gt;\n  );\n}\n\nfunction Child({ onClick }) {\n  console.log('Child rendered');\n  return &lt;button onClick={onClick}&gt;Click me&lt;/button&gt;;\n}</code></pre><h2><code>useMemo</code></h2><blockquote><p><code>useMemo</code> <strong>memoizes a computed value</strong> — avoids <strong>expensive recalculations</strong> on every render.</p></blockquote><p><strong>Use when:</strong> You have <strong>slow calculations</strong> or want to <strong>avoid recalculating derived values</strong> unless dependencies change.</p><pre><code>import { useMemo, useState } from 'react';\n\nfunction ExpensiveComponent() {\n  const [count, setCount] = useState(0);\n  const [other, setOther] = useState(false);\n  const expensiveCalculation = useMemo(() =&gt; {\n    console.log('Calculating...');\n    return count * 2;\n  }, [count]);\n  return (\n    &lt;&gt;\n      &lt;p&gt;Expensive Value: {expensiveCalculation}&lt;/p&gt;\n      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increase&lt;/button&gt;\n      &lt;button onClick={() =&gt; setOther(!other)}&gt;Toggle Other&lt;/button&gt;\n    &lt;/&gt;\n  );\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 19,
+    "question": "What is prop drilling and how to avoid it?",
+    "answer": "<p>Prop drilling is passing props from parent to child to grandchild, etc., even if only the last one needs it.</p><p><strong>Solution:</strong><br>Use <strong>Context API</strong> or <strong>state management libraries</strong> (like Redux).</p>",
+    "category": "React",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 20,
+    "question": "What is lazy loading in React?",
+    "answer": "<p>Lazy loading means loading components <strong>only when needed</strong> to reduce the initial load time.</p><pre><code>const LazyComponent = React.lazy(() =&gt; import('./MyComponent'));\n\n&lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;\n  &lt;LazyComponent /&gt;\n&lt;/Suspense&gt;</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 21,
+    "question": "What is reconciliation in React?",
+    "answer": "<p>Reconciliation is the process where React compares the <strong>virtual DOM</strong> with the <strong>real DOM</strong> and updates only what's changed.</p>",
+    "category": "React",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 22,
+    "question": "What is the significance of the key prop in lists?",
+    "answer": "<p>It helps React <strong>track list items</strong> and update them efficiently without re-rendering the whole list.</p>",
+    "category": "React",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 23,
+    "question": "What are higher-order components (HOC)?",
+    "answer": "<p>HOC is a function that takes a component and <strong>returns a new component</strong> with added functionality.</p><pre><code>function withAuth(Component) {\n  return function EnhancedComponent(props) {\n    return &lt;Component {...props} isAuthenticated={true} /&gt;;\n  };\n}</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 24,
+    "question": "What is the purpose of defaultProps?",
+    "answer": "<p><code>defaultProps</code> sets <strong>default values</strong> for props if no value is passed.</p><pre><code>function Greet({ name }) {\n  return &lt;h1&gt;Hello, {name}&lt;/h1&gt;;\n}\n\nGreet.defaultProps = {\n  name: \"Guest\"\n};</code></pre>",
+    "category": "React",
+    "difficulty": "Beginner"
   }
 ]
