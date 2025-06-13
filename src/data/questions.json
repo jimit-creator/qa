@@ -275,7 +275,7 @@
   {
     "id": 40,
     "question": "What are lifecycle hooks in Angular?",
-			"answer": "<p>Lifecycle hooks are special methods Angular calls at different stages of a component’s life — from creation to destruction.</p><ul><li><code>constructor</code>When the component is created (used for simple setup)</li><li><code>ngOnChanges()</code>When an input property changes</li><li><code>ngOnInit()</code>After the first <code>ngOnChanges</code> – good for API calls</li><li><code>ngDoCheck()</code>Custom change detection (called often)</li><li><code>ngAfterContentInit()</code>After external content is projected into the component</li><li><code>ngAfterContentChecked()</code>After every check of projected content</li><li><code>ngAfterViewInit()</code>After component view (and child views) are initialized</li><li><code>ngAfterViewChecked()</code>After every check of the component and child views</li><li><code>ngOnDestroy()</code>Just before the component is destroyed – cleanup time</li></ul>",
+			"answer": "<p>Lifecycle hooks are special methods Angular calls at different stages of a component's life — from creation to destruction.</p><ul><li><code>constructor</code>When the component is created (used for simple setup)</li><li><code>ngOnChanges()</code>When an input property changes</li><li><code>ngOnInit()</code>After the first <code>ngOnChanges</code> – good for API calls</li><li><code>ngDoCheck()</code>Custom change detection (called often)</li><li><code>ngAfterContentInit()</code>After external content is projected into the component</li><li><code>ngAfterContentChecked()</code>After every check of projected content</li><li><code>ngAfterViewInit()</code>After component view (and child views) are initialized</li><li><code>ngAfterViewChecked()</code>After every check of the component and child views</li><li><code>ngOnDestroy()</code>Just before the component is destroyed – cleanup time</li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
@@ -284,6 +284,27 @@
     "question": "What is the difference between Observable and Promise?",
 			"answer": "<p><strong>Observable</strong></p><ul><li>Can emit <strong>multiple values</strong></li><li>it can be <strong>Cancelable</strong></li><li>its <strong>Lazy </strong>(runs only when subscribed)</li></ul><p><strong>Promise</strong></p><ul><li>Emits <strong>one value</strong> only</li><li>it can not be <strong>Cancelable</strong></li><li>its <strong>Lazy</strong></li></ul>",
     "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 42,
+    "question": "What is the difference between <code>==</code> and <code>===</code>?",
+    "answer": "<ul><li><code>==</code> checks value only (loose equality).</li><li><code>===</code> checks value and type (strict equality).</li></ul><pre><code>console.log(5 == '5');  // true\nconsole.log(5 === '5'); // false</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 43,
+    "question": "What is hoisting in JavaScript?",
+    "answer": "<p>Hoisting means moving variable and function declarations to the top of their scope before code execution.<p><pre><code>console.log(a); // undefined\nvar a = 5;</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 43,
+    "question": "What is the difference between <code>shallow copy</code> and <code>deep copy</code> in ES6?",
+    "answer": "<p><strong>Shallow Copy</strong></p><p>A shallow copy copies only the first level of an object or array. If the object has nested objects, the nested objects still refer to the same memory.<p><p><strong>Deep Copy</strong></p><p>A deep copy copies everything, including nested objects. So, changes to the copy do not affect the original.<p>",
+    "category": "JavaScript",
     "difficulty": "Beginner"
   }
 ]
