@@ -954,8 +954,71 @@
   {
     "id": 136,
     "question": "Introduction ",
-    "answer": "<p>My name is Jimit Hothi. I have over 9 years of experience in the software development industry. I’ve worked on multiple domains and technologies. I specialize in JavaScript, Node.js, and building scalable web applications.I have experience in both frontend and backend technologies. I’m also familiar with tools like Git, NPM, and modern frameworks like Angular. Over the years, I’ve handled team coordination, client communication, and project delivery, so I’m comfortable working independently or as part of a team. I believe in continuous learning and always try to keep myself updated with the latest technologies.</p>",
+    "answer": "<p>My name is Jimit Hothi. I have over 9 years of experience in the software development industry. I've worked on multiple domains and technologies. I specialize in JavaScript, Node.js, and building scalable web applications.I have experience in both frontend and backend technologies. I'm also familiar with tools like Git, NPM, and modern frameworks like Angular. Over the years, I've handled team coordination, client communication, and project delivery, so I'm comfortable working independently or as part of a team. I believe in continuous learning and always try to keep myself updated with the latest technologies.</p>",
     "category": "Angular",
     "difficulty": "Intermediate"
+  },
+  {
+    "id": 137,
+    "question": "What is Git and what are its main features?",
+    "answer": "<p>Git is a distributed version control system that helps track changes in source code during software development.</p><h3>Key Features:</h3><ul><li>Distributed Version Control</li><li>Branching and Merging</li><li>Staging Area</li><li>Data Integrity</li><li>Speed and Performance</li></ul><h3>Basic Git Commands:</h3><pre><code># Initialize a new repository\n$ git init\n\n# Clone a repository\n$ git clone https://github.com/username/repository.git\n\n# Check repository status\n$ git status\n\n# Add files to staging area\n$ git add filename.txt\n$ git add .  # Add all files\n\n# Commit changes\n$ git commit -m \"Your commit message\"\n\n# Push changes to remote\n$ git push origin main</code></pre>",
+    "category": "Git",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 138,
+    "question": "What is the difference between git pull and git fetch?",
+    "answer": "<p>git pull and git fetch are both used to get updates from a remote repository, but they work differently.</p><h3>git fetch:</h3><ul><li>Downloads new data from remote repository</li><li>Doesn't integrate changes into your working files</li><li>Safer option as it doesn't modify your local work</li></ul><h3>git pull:</h3><ul><li>Downloads AND integrates changes from remote repository</li><li>Combines git fetch + git merge</li><li>Can potentially cause conflicts</li></ul><h3>Example:</h3><pre><code># Using git fetch\n$ git fetch origin\n$ git merge origin/main\n\n# Using git pull (does both fetch and merge)\n$ git pull origin main</code></pre><h3>Best Practice:</h3><p>Use git fetch when you want to review changes before integrating them. Use git pull when you're confident about the remote changes and want to integrate them immediately.</p>",
+    "category": "Git",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 139,
+    "question": "How do you resolve merge conflicts in Git?",
+    "answer": "<p>Merge conflicts occur when Git can't automatically resolve differences between commits. Here's how to handle them:</p><h3>Steps to Resolve Conflicts:</h3><ol><li>Identify conflicting files</li><li>Open and edit the files</li><li>Choose which changes to keep</li><li>Mark conflicts as resolved</li><li>Complete the merge</li></ol><h3>Example Process:</h3><pre><code># When you see a conflict, Git marks the file like this:\n<<<<<<< HEAD\nYour changes\n=======\nChanges from other branch\n>>>>>>> branch-name\n\n# After editing, mark as resolved:\n$ git add filename.txt\n\n# Complete the merge:\n$ git commit -m \"Resolved merge conflicts\"</code></pre><h3>Best Practices:</h3><ul><li>Always pull latest changes before starting new work</li><li>Keep commits small and focused</li><li>Communicate with team members about changes</li><li>Use visual merge tools for complex conflicts</li></ul>",
+    "category": "Git",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 140,
+    "question": "What is Git branching strategy and what are common branching models?",
+    "answer": "<p>A branching strategy defines how branches are created and managed in a project. Here are common strategies:</p><h3>Git Flow:</h3><ul><li>main - production code</li><li>develop - development branch</li><li>feature/* - new features</li><li>release/* - release preparation</li><li>hotfix/* - urgent fixes</li></ul><h3>GitHub Flow:</h3><ul><li>main - always deployable</li><li>feature branches - for new work</li><li>Pull requests for review</li><li>Merge after approval</li></ul><h3>Example Commands:</h3><pre><code># Create and switch to new branch\n$ git checkout -b feature/new-feature\n\n# Switch between branches\n$ git checkout main\n\n# Merge branch\n$ git merge feature/new-feature\n\n# Delete branch\n$ git branch -d feature/new-feature</code></pre><h3>Best Practices:</h3><ul><li>Use meaningful branch names</li><li>Keep branches short-lived</li><li>Regularly sync with main branch</li><li>Delete branches after merging</li></ul>",
+    "category": "Git",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 141,
+    "question": "What is Git rebase and when should you use it?",
+    "answer": "<p>Git rebase is a command that helps maintain a linear project history by moving or combining commits.</p><h3>Key Points:</h3><ul><li>Rewrites commit history</li><li>Creates a linear project history</li><li>Should be used before pushing to shared branches</li></ul><h3>Example:</h3><pre><code># Basic rebase\n$ git checkout feature-branch\n$ git rebase main\n\n# Interactive rebase (last 3 commits)\n$ git rebase -i HEAD~3\n\n# During interactive rebase, you can:\n# - pick: keep commit as is\n# - reword: change commit message\n# - edit: modify commit\n# - squash: combine with previous commit\n# - fixup: combine and discard message\n# - drop: remove commit</code></pre><h3>Best Practices:</h3><ul><li>Don't rebase commits that have been pushed to public repositories</li><li>Use rebase to keep feature branches up to date with main</li><li>Use interactive rebase to clean up local commits before pushing</li></ul>",
+    "category": "Git",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 142,
+    "question": "What is Git stash and how do you use it?",
+    "answer": "<p>Git stash temporarily saves your uncommitted changes, allowing you to switch branches without committing incomplete work.</p><h3>Common Stash Commands:</h3><pre><code># Save changes to stash\n$ git stash save \"Work in progress\"\n\n# List all stashes\n$ git stash list\n\n# Apply most recent stash\n$ git stash apply\n\n# Apply specific stash\n$ git stash apply stash@{2}\n\n# Apply and remove stash\n$ git stash pop\n\n# Remove specific stash\n$ git stash drop stash@{1}\n\n# Clear all stashes\n$ git stash clear</code></pre><h3>Best Practices:</h3><ul><li>Use descriptive messages when stashing</li><li>Regularly clean up old stashes</li><li>Consider using git stash push -m \"message\" for better organization</li><li>Use git stash branch to create a new branch from a stash</li></ul>",
+    "category": "Git",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 143,
+    "question": "What are Git hooks and how do you use them?",
+    "answer": "<p>Git hooks are scripts that run automatically at specific points in the Git workflow.</p><h3>Common Hooks:</h3><ul><li>pre-commit: Runs before commit is created</li><li>post-commit: Runs after commit is created</li><li>pre-push: Runs before code is pushed</li><li>pre-rebase: Runs before rebase starts</li></ul><h3>Example pre-commit hook:</h3><pre><code>#!/bin/sh\n\n# Run linter\nnpm run lint\n\n# Run tests\nnpm test\n\n# If any command fails, prevent commit\nif [ $? -ne 0 ]; then\n  echo \"Tests must pass before commit!\"\n  exit 1\nfi</code></pre><h3>Setting up hooks:</h3><pre><code># Create hook file\n$ touch .git/hooks/pre-commit\n\n# Make it executable\n$ chmod +x .git/hooks/pre-commit\n\n# Using Husky (popular hook manager)\n$ npm install husky --save-dev\n\n# Configure in package.json\n{\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"npm run lint\",\n      \"pre-push\": \"npm test\"\n    }\n  }\n}</code></pre>",
+    "category": "Git",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 144,
+    "question": "How do you undo changes in Git?",
+    "answer": "<p>Git provides several ways to undo changes depending on the situation.</p><h3>Common Scenarios:</h3><pre><code># Undo working directory changes\n$ git checkout -- filename.txt\n\n# Unstage changes (keep working directory)\n$ git reset HEAD filename.txt\n\n# Undo last commit (keep changes staged)\n$ git reset --soft HEAD~1\n\n# Undo last commit (keep changes in working directory)\n$ git reset HEAD~1\n\n# Undo last commit (discard changes)\n$ git reset --hard HEAD~1\n\n# Revert a specific commit\n$ git revert commit-hash\n\n# Amend last commit\n$ git commit --amend -m \"New commit message\"</code></pre><h3>Best Practices:</h3><ul><li>Use git reset for local changes</li><li>Use git revert for pushed commits</li><li>Always create a backup branch before major undo operations</li><li>Be careful with --hard reset as it permanently deletes changes</li></ul>",
+    "category": "Git",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 145,
+    "question": "What is Git submodule and when should you use it?",
+    "answer": "<p>Git submodules allow you to include other Git repositories within your project.</p><h3>Common Use Cases:</h3><ul><li>Including shared libraries</li><li>Managing third-party dependencies</li><li>Organizing large projects</li></ul><h3>Basic Commands:</h3><pre><code># Add a submodule\n$ git submodule add https://github.com/username/repo.git path/to/submodule\n\n# Initialize submodules after cloning\n$ git submodule init\n$ git submodule update\n\n# Clone repository with submodules\n$ git clone --recursive https://github.com/username/repo.git\n\n# Update all submodules\n$ git submodule update --remote\n\n# Remove submodule\n$ git submodule deinit path/to/submodule\n$ git rm path/to/submodule</code></pre><h3>Best Practices:</h3><ul><li>Use submodules for stable, versioned dependencies</li><li>Document submodule usage in README</li><li>Consider using package managers for simpler dependency management</li><li>Keep submodules up to date</li></ul>",
+    "category": "Git",
+    "difficulty": "Advanced"
   }
 ]
