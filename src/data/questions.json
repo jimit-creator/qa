@@ -306,5 +306,194 @@
     "answer": "<p><strong>Shallow Copy</strong></p><p>A shallow copy copies only the first level of an object or array. If the object has nested objects, the nested objects still refer to the same memory.<p><p><strong>Deep Copy</strong></p><p>A deep copy copies everything, including nested objects. So, changes to the copy do not affect the original.<p>",
     "category": "JavaScript",
     "difficulty": "Beginner"
+  },
+  {
+    "id": 44,
+    "question": "What is Angular's change detection?",
+    "answer": "<p>Change detection is how Angular keeps track of changes in your app and updates the view. Think of it like a security camera that watches for changes and updates the screen when needed.</p><pre><code>@Component({\n  selector: 'app-counter',\n  template: `\n    &lt;button (click)=\"increment()\"&gt;Count: {{count}}&lt;/button&gt;\n  `\n})\nexport class CounterComponent {\n  count = 0;\n  increment() {\n    this.count++; // Angular automatically updates the view\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 45,
+    "question": "What is Angular's HttpClient and how to use it?",
+    "answer": "<p>HttpClient is a service for making HTTP requests (like getting data from a server). It's like a messenger that fetches or sends data.</p><pre><code>@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n  constructor(private http: HttpClient) {}\n\n  // Get users from server\n  getUsers() {\n    return this.http.get('https://api.example.com/users');\n  }\n\n  // Add a new user\n  addUser(user: any) {\n    return this.http.post('https://api.example.com/users', user);\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 46,
+    "question": "What is Angular's async pipe?",
+    "answer": "<p>The async pipe automatically handles subscriptions and unsubscriptions for Observables and Promises. It's like having an automatic cleanup crew.</p><pre><code>@Component({\n  selector: 'app-users',\n  template: `\n    &lt;div *ngIf=\"users$ | async as users\"&gt;\n      &lt;ul&gt;\n        &lt;li *ngFor=\"let user of users\"&gt;\n          {{user.name}}\n        &lt;/li&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;\n  `\n})\nexport class UsersComponent {\n  users$ = this.userService.getUsers();\n  constructor(private userService: UserService) {}\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 47,
+    "question": "What is Angular's ViewChild and how to use it?",
+    "answer": "<p>ViewChild lets you access child components, directives, or DOM elements from your parent component. It's like having a remote control for child elements.</p><pre><code>@Component({\n  selector: 'app-parent',\n  template: `\n    &lt;app-child #childRef&gt;&lt;/app-child&gt;\n    &lt;button (click)=\"callChildMethod()\"&gt;Call Child&lt;/button&gt;\n  `\n})\nexport class ParentComponent {\n  @ViewChild('childRef') child: ChildComponent;\n\n  callChildMethod() {\n    this.child.someMethod(); // Call child's method\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 48,
+    "question": "What is Angular's form validation?",
+    "answer": "<p>Form validation helps ensure users enter correct data. Angular provides built-in validators and lets you create custom ones.</p><pre><code>@Component({\n  selector: 'app-login',\n  template: `\n    &lt;form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\"&gt;\n      &lt;input formControlName=\"email\" placeholder=\"Email\"&gt;\n      &lt;div *ngIf=\"email.invalid && email.touched\"&gt;\n        Email is required and must be valid\n      &lt;/div&gt;\n\n      &lt;input type=\"password\" formControlName=\"password\"&gt;\n      &lt;div *ngIf=\"password.invalid && password.touched\"&gt;\n        Password must be at least 6 characters\n      &lt;/div&gt;\n\n      &lt;button [disabled]=\"loginForm.invalid\"&gt;Login&lt;/button&gt;\n    &lt;/form&gt;\n  `\n})\nexport class LoginComponent {\n  loginForm = this.fb.group({\n    email: ['', [Validators.required, Validators.email]],\n    password: ['', [Validators.required, Validators.minLength(6)]]\n  });\n\n  constructor(private fb: FormBuilder) {}\n\n  get email() { return this.loginForm.get('email'); }\n  get password() { return this.loginForm.get('password'); }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 49,
+    "question": "What are Arrow Functions in ES6?",
+    "answer": "<p>Arrow functions are a shorter way to write functions in JavaScript. They make code more concise and handle 'this' differently.</p><pre><code>// Old way\nfunction add(a, b) {\n  return a + b;\n}\n\n// Arrow function way\nconst add = (a, b) => a + b;\n\n// With multiple lines\nconst multiply = (a, b) => {\n  const result = a * b;\n  return result;\n};\n\n// Real-world example with array methods\nconst numbers = [1, 2, 3, 4];\nconst doubled = numbers.map(num => num * 2);</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 50,
+    "question": "What are Template Literals in ES6?",
+    "answer": "<p>Template literals allow you to create strings with embedded expressions using backticks (`). They make string concatenation much easier.</p><pre><code>// Old way\nconst name = 'John';\nconst greeting = 'Hello, ' + name + '! Welcome to ' + city + '.';\n\n// Template literal way\nconst greeting = `Hello, ${name}! Welcome to ${city}.`;\n\n// Multi-line strings\nconst email = `\n  Dear ${name},\n  Thank you for your order.\n  Your order number is: ${orderNumber}\n  Best regards,\n  The Team\n`;</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 51,
+    "question": "What is Destructuring in ES6?",
+    "answer": "<p>Destructuring allows you to extract values from arrays or objects into distinct variables. It makes code cleaner and more readable.</p><pre><code>// Array destructuring\nconst colors = ['red', 'green', 'blue'];\nconst [first, second, third] = colors;\nconsole.log(first); // 'red'\n\n// Object destructuring\nconst person = {\n  name: 'John',\n  age: 30,\n  city: 'New York'\n};\n\nconst { name, age } = person;\nconsole.log(name); // 'John'\n\n// With default values\nconst { country = 'USA' } = person;\n\n// In function parameters\nfunction printUser({ name, age }) {\n  console.log(`${name} is ${age} years old`);\n}</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 52,
+    "question": "What are Spread and Rest Operators in ES6?",
+    "answer": "<p>The spread (...) operator expands arrays or objects, while the rest operator collects remaining elements into an array.</p><pre><code>// Spread operator with arrays\nconst arr1 = [1, 2, 3];\nconst arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]\n\n// Spread operator with objects\nconst person = { name: 'John', age: 30 };\nconst updatedPerson = { ...person, city: 'New York' };\n\n// Rest operator in function parameters\nfunction sum(...numbers) {\n  return numbers.reduce((total, num) => total + num, 0);\n}\n\nconsole.log(sum(1, 2, 3, 4)); // 10\n\n// Rest operator in destructuring\nconst [first, second, ...rest] = [1, 2, 3, 4, 5];\nconsole.log(rest); // [3, 4, 5]</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 53,
+    "question": "What are ES6 Classes?",
+    "answer": "<p>Classes in ES6 provide a cleaner way to create objects and handle inheritance. They are syntactic sugar over JavaScript's prototype-based inheritance.</p><pre><code>class Animal {\n  constructor(name) {\n    this.name = name;\n  }\n\n  speak() {\n    console.log(`${this.name} makes a sound.`);\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    console.log(`${this.name} barks.`);\n  }\n\n  fetch() {\n    console.log(`${this.name} fetches the ball.`);\n  }\n}\n\nconst dog = new Dog('Rex');\ndog.speak(); // 'Rex barks.'\ndog.fetch(); // 'Rex fetches the ball.'</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 54,
+    "question": "What are ES6 Modules?",
+    "answer": "<p>ES6 modules allow you to split your code into separate files and import/export functionality between them.</p><pre><code>// math.js\nexport const add = (a, b) => a + b;\nexport const subtract = (a, b) => a - b;\n\nexport default class Calculator {\n  multiply(a, b) {\n    return a * b;\n  }\n}\n\n// main.js\nimport Calculator, { add, subtract } from './math.js';\n\nconst calc = new Calculator();\nconsole.log(add(5, 3)); // 8\nconsole.log(calc.multiply(4, 2)); // 8</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 55,
+    "question": "What are Promises in ES6?",
+    "answer": "<p>Promises are objects that represent the eventual completion (or failure) of an asynchronous operation. They help handle asynchronous code more elegantly.</p><pre><code>// Creating a promise\nconst fetchData = () => {\n  return new Promise((resolve, reject) => {\n    // Simulating API call\n    setTimeout(() => {\n      const data = { id: 1, name: 'John' };\n      resolve(data);\n      // If error: reject(new Error('Failed to fetch'));\n    }, 1000);\n  });\n};\n\n// Using the promise\nfetchData()\n  .then(data => {\n    console.log('Success:', data);\n  })\n  .catch(error => {\n    console.error('Error:', error);\n  });\n\n// Using async/await (ES7)\nasync function getData() {\n  try {\n    const data = await fetchData();\n    console.log('Success:', data);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 56,
+    "question": "What are Map and Set in ES6?",
+    "answer": "<p>Map and Set are new data structures in ES6. Map is like an object but with any type of keys, and Set stores unique values.</p><pre><code>// Map example\nconst userMap = new Map();\nuserMap.set('name', 'John');\nuserMap.set(1, 'One');\nuserMap.set({ id: 1 }, 'Object key');\n\nconsole.log(userMap.get('name')); // 'John'\nconsole.log(userMap.has(1)); // true\n\n// Set example\nconst numbers = new Set([1, 2, 3, 3, 4, 4]);\nconsole.log(numbers); // Set {1, 2, 3, 4}\n\n// Real-world example: Counting unique visitors\nconst visitors = new Set();\nvisitors.add('user1');\nvisitors.add('user2');\nvisitors.add('user1'); // Duplicate ignored\nconsole.log(visitors.size); // 2</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 57,
+    "question": "What are Generators in ES6?",
+    "answer": "<p>Generators are functions that can be paused and resumed. They use the function* syntax and yield keyword.</p><pre><code>// Basic generator\nfunction* numberGenerator() {\n  yield 1;\n  yield 2;\n  yield 3;\n}\n\nconst gen = numberGenerator();\nconsole.log(gen.next().value); // 1\nconsole.log(gen.next().value); // 2\nconsole.log(gen.next().value); // 3\n\n// Real-world example: Infinite sequence\nfunction* infiniteSequence() {\n  let i = 0;\n  while(true) {\n    yield i++;\n  }\n}\n\nconst infinite = infiniteSequence();\nconsole.log(infinite.next().value); // 0\nconsole.log(infinite.next().value); // 1\nconsole.log(infinite.next().value); // 2</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 58,
+    "question": "What are Array Methods in ES6?",
+    "answer": "<p>ES6 introduced several powerful array methods for data manipulation. Here are the most commonly used ones:</p><pre><code>const numbers = [1, 2, 3, 4, 5];\n\n// map: transform each element\nconst doubled = numbers.map(num => num * 2);\n// [2, 4, 6, 8, 10]\n\n// filter: select elements that match a condition\nconst evenNumbers = numbers.filter(num => num % 2 === 0);\n// [2, 4]\n\n// reduce: combine elements into a single value\nconst sum = numbers.reduce((total, num) => total + num, 0);\n// 15\n\n// find: get first matching element\nconst firstEven = numbers.find(num => num % 2 === 0);\n// 2\n\n// some: check if any element matches\nconst hasEven = numbers.some(num => num % 2 === 0);\n// true\n\n// every: check if all elements match\nconst allPositive = numbers.every(num => num > 0);\n// true</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 59,
+    "question": "What is the Symbol type in ES6?",
+    "answer": "<p>Symbol is a new primitive type in ES6 that creates unique identifiers. Symbols are often used as object property keys.</p><pre><code>// Creating symbols\nconst sym1 = Symbol('description');\nconst sym2 = Symbol('description');\nconsole.log(sym1 === sym2); // false\n\n// Using symbols as object keys\nconst user = {\n  [Symbol('id')]: 1,\n  name: 'John'\n};\n\n// Well-known symbols\nconst numbers = [1, 2, 3];\nnumbers[Symbol.iterator] = function* () {\n  yield 1;\n  yield 2;\n  yield 3;\n};\n\n// Real-world example: Private properties\nconst privateData = Symbol('privateData');\nclass User {\n  constructor() {\n    this[privateData] = 'secret';\n  }\n  getPrivateData() {\n    return this[privateData];\n  }\n}</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 60,
+    "question": "What are Object Methods in ES6?",
+    "answer": "<p>ES6 added several useful methods for working with objects. Here are the most important ones:</p><pre><code>const person = { name: 'John', age: 30 };\n\n// Object.assign: copy properties\nconst newPerson = Object.assign({}, person, { city: 'New York' });\n\n// Object.keys: get property names\nconst keys = Object.keys(person); // ['name', 'age']\n\n// Object.values: get property values\nconst values = Object.values(person); // ['John', 30]\n\n// Object.entries: get key-value pairs\nconst entries = Object.entries(person);\n// [['name', 'John'], ['age', 30]]\n\n// Object.freeze: make object immutable\nconst frozen = Object.freeze(person);\n\n// Real-world example: Merging objects\nconst defaults = { theme: 'light', language: 'en' };\nconst userSettings = { theme: 'dark' };\nconst settings = Object.assign({}, defaults, userSettings);\n// { theme: 'dark', language: 'en' }</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 61,
+    "question": "What is the Proxy object in ES6?",
+    "answer": "<p>Proxy allows you to create a wrapper around an object that can intercept and customize operations like property lookup, assignment, etc.</p><pre><code>// Basic proxy\nconst handler = {\n  get: function(target, prop) {\n    return prop in target ? target[prop] : 'Not found';\n  },\n  set: function(target, prop, value) {\n    if (prop === 'age' && value < 0) {\n      throw new Error('Age cannot be negative');\n    }\n    target[prop] = value;\n    return true;\n  }\n};\n\nconst person = new Proxy({}, handler);\nperson.name = 'John';\nconsole.log(person.name); // 'John'\nconsole.log(person.unknown); // 'Not found'\n\n// Real-world example: Validation proxy\nconst userProxy = new Proxy({}, {\n  set: function(target, prop, value) {\n    if (prop === 'email' && !value.includes('@')) {\n      throw new Error('Invalid email');\n    }\n    target[prop] = value;\n    return true;\n  }\n});</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 62,
+    "question": "What is the Reflect object in ES6?",
+    "answer": "<p>Reflect is a built-in object that provides methods for interceptable JavaScript operations. It's often used with Proxy.</p><pre><code>// Basic Reflect usage\nconst user = { name: 'John' };\n\n// Getting property\nconsole.log(Reflect.get(user, 'name')); // 'John'\n\n// Setting property\nReflect.set(user, 'age', 30);\n\n// Checking if property exists\nconsole.log(Reflect.has(user, 'name')); // true\n\n// Deleting property\nReflect.deleteProperty(user, 'age');\n\n// Real-world example: Dynamic property access\nfunction getProperty(obj, prop) {\n  if (Reflect.has(obj, prop)) {\n    return Reflect.get(obj, prop);\n  }\n  return undefined;\n}\n\nconst result = getProperty(user, 'name'); // 'John'</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 63,
+    "question": "What is Async/Await in ES7?",
+    "answer": "<p>Async/await is a way to write asynchronous code that looks like synchronous code. It makes promises easier to work with.</p><pre><code>// Using promises\nfunction fetchUser() {\n  return fetch('https://api.example.com/user')\n    .then(response => response.json())\n    .then(data => console.log(data))\n    .catch(error => console.error(error));\n}\n\n// Using async/await\nasync function fetchUser() {\n  try {\n    const response = await fetch('https://api.example.com/user');\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(error);\n  }\n}\n\n// Real-world example: Multiple API calls\nasync function getUserData(userId) {\n  const user = await fetchUser(userId);\n  const posts = await fetchUserPosts(userId);\n  const comments = await fetchUserComments(userId);\n  return { user, posts, comments };\n}</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 64,
+    "question": "What is Optional Chaining (?.) in ES2020?",
+    "answer": "<p>Optional chaining is a way to safely access nested object properties without having to check if each level exists.</p><pre><code>// Old way\nconst street = user && user.address && user.address.street;\n\n// With optional chaining\nconst street = user?.address?.street;\n\n// With function calls\nconst result = user?.getName?.();\n\n// With array access\nconst firstItem = array?.[0];\n\n// Real-world example: API response\nconst userData = {\n  user: {\n    profile: {\n      name: 'John'\n    }\n  }\n};\n\nconsole.log(userData?.user?.profile?.name); // 'John'\nconsole.log(userData?.user?.settings?.theme); // undefined</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 65,
+    "question": "What is Nullish Coalescing (??) in ES2020?",
+    "answer": "<p>Nullish coalescing is an operator that returns the right-hand operand when the left-hand operand is null or undefined.</p><pre><code>// Old way\nconst value = someValue !== null && someValue !== undefined ? someValue : defaultValue;\n\n// With nullish coalescing\nconst value = someValue ?? defaultValue;\n\n// Real-world examples\nconst user = {\n  name: 'John',\n  age: 0,\n  email: null\n};\n\nconsole.log(user.name ?? 'Anonymous'); // 'John'\nconsole.log(user.age ?? 18); // 0 (because 0 is not null/undefined)\nconsole.log(user.email ?? 'no-email@example.com'); // 'no-email@example.com'\n\n// With optional chaining\nconst theme = user?.settings?.theme ?? 'light';</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 66,
+    "question": "What is Dynamic Import in ES6?",
+    "answer": "<p>Dynamic import allows you to load modules on demand, which is useful for code splitting and lazy loading.</p><pre><code>// Static import\nimport { add } from './math.js';\n\n// Dynamic import\nasync function loadModule() {\n  try {\n    const module = await import('./math.js');\n    console.log(module.add(2, 3));\n  } catch (error) {\n    console.error('Failed to load module:', error);\n  }\n}\n\n// Real-world example: Lazy loading components\nasync function loadComponent(componentName) {\n  const component = await import(`./components/${componentName}.js`);\n  return component.default;\n}\n\n// Usage in React-like environment\nasync function renderComponent() {\n  const Button = await loadComponent('Button');\n  return &lt;Button /&gt;;\n}</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 67,
+    "question": "What is BigInt in ES2020?",
+    "answer": "<p>BigInt is a new numeric primitive that can represent integers of arbitrary precision, useful for working with very large numbers.</p><pre><code>// Creating BigInt\nconst bigNumber = 9007199254740991n; // Note the 'n' suffix\nconst anotherBig = BigInt('9007199254740991');\n\n// Operations with BigInt\nconst sum = bigNumber + 1n;\nconst product = bigNumber * 2n;\n\n// Real-world example: Working with large numbers\nfunction calculateFactorial(n) {\n  let result = 1n;\n  for (let i = 2n; i <= n; i++) {\n    result *= i;\n  }\n  return result;\n}\n\nconsole.log(calculateFactorial(20n)); // 2432902008176640000n\n\n// Converting between Number and BigInt\nconst regularNumber = 123;\nconst bigIntNumber = BigInt(regularNumber);\nconst backToNumber = Number(bigIntNumber);</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 68,
+    "question": "What are String Methods in ES6?",
+    "answer": "<p>ES6 introduced several useful string methods for searching and manipulating strings.</p><pre><code>const text = 'Hello, World!';\n\n// startsWith: check if string starts with a pattern\nconsole.log(text.startsWith('Hello')); // true\n\n// endsWith: check if string ends with a pattern\nconsole.log(text.endsWith('!')); // true\n\n// includes: check if string contains a pattern\nconsole.log(text.includes('World')); // true\n\n// repeat: repeat string multiple times\nconsole.log('ha'.repeat(3)); // 'hahaha'\n\n// padStart/padEnd: add padding to string\nconsole.log('5'.padStart(3, '0')); // '005'\nconsole.log('5'.padEnd(3, '0')); // '500'\n\n// Real-world example: Formatting\nfunction formatPhoneNumber(number) {\n  return number.padStart(10, '0').replace(/(\\d{3})(\\d{3})(\\d{4})/, '($1) $2-$3');\n}\n\nconsole.log(formatPhoneNumber('1234567890')); // '(123) 456-7890'</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 69,
+    "question": "What are Array Methods in ES6+?",
+    "answer": "<p>ES6 and later versions added more powerful array methods for data manipulation.</p><pre><code>const numbers = [1, 2, 3, 4, 5];\n\n// includes: check if array contains a value\nconsole.log(numbers.includes(3)); // true\n\n// flat: flatten nested arrays\nconst nested = [1, [2, 3], [4, [5, 6]]];\nconsole.log(nested.flat()); // [1, 2, 3, 4, [5, 6]]\nconsole.log(nested.flat(2)); // [1, 2, 3, 4, 5, 6]\n\n// flatMap: map and flatten in one step\nconst sentences = ['Hello world', 'Good morning'];\nconst words = sentences.flatMap(sentence => sentence.split(' '));\n// ['Hello', 'world', 'Good', 'morning']\n\n// Real-world example: Data processing\nconst users = [\n  { name: 'John', hobbies: ['reading', 'gaming'] },\n  { name: 'Jane', hobbies: ['painting', 'dancing'] }\n];\n\nconst allHobbies = users.flatMap(user => user.hobbies);\n// ['reading', 'gaming', 'painting', 'dancing']</code></pre>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 70,
+    "question": "What is the difference between Promises and Async/Await?",
+    "answer": "<p>Promises and Async/Await are both ways to handle asynchronous operations in JavaScript, but they have different syntax and use cases.</p><h3>Key Differences:</h3><ul><li>Promises use .then() chains, while Async/Await uses a more synchronous-looking syntax</li><li>Async/Await is built on top of Promises</li><li>Async/Await makes error handling easier with try/catch</li><li>Async/Await is generally more readable and maintainable</li></ul><h3>Promise Example:</h3><pre><code>// Using Promises\nfunction fetchUserData(userId) {\n  return fetch(`https://api.example.com/users/${userId}`)\n    .then(response => {\n      if (!response.ok) {\n        throw new Error('Network response was not ok');\n      }\n      return response.json();\n    })\n    .then(user => {\n      return fetch(`https://api.example.com/users/${userId}/posts`)\n        .then(response => response.json())\n        .then(posts => {\n          return { user, posts };\n        });\n    })\n    .catch(error => {\n      console.error('Error:', error);\n      throw error;\n    });\n}\n\n// Using the Promise\nfetchUserData(123)\n  .then(data => {\n    console.log('User:', data.user);\n    console.log('Posts:', data.posts);\n  })\n  .catch(error => {\n    console.error('Failed:', error);\n  });</code></pre><h3>Async/Await Example:</h3><pre><code>// Using Async/Await\nasync function fetchUserData(userId) {\n  try {\n    const userResponse = await fetch(`https://api.example.com/users/${userId}`);\n    if (!userResponse.ok) {\n      throw new Error('Network response was not ok');\n    }\n    const user = await userResponse.json();\n\n    const postsResponse = await fetch(`https://api.example.com/users/${userId}/posts`);\n    const posts = await postsResponse.json();\n\n    return { user, posts };\n  } catch (error) {\n    console.error('Error:', error);\n    throw error;\n  }\n}\n\n// Using the Async function\nasync function displayUserData() {\n  try {\n    const data = await fetchUserData(123);\n    console.log('User:', data.user);\n    console.log('Posts:', data.posts);\n  } catch (error) {\n    console.error('Failed:', error);\n  }\n}</code></pre><h3>Real-world Example: Multiple API Calls</h3><pre><code>// Using Promises\nfunction getOrderDetails(orderId) {\n  return fetch(`/api/orders/${orderId}`)\n    .then(response => response.json())\n    .then(order => {\n      return Promise.all([\n        fetch(`/api/users/${order.userId}`).then(r => r.json()),\n        fetch(`/api/products/${order.productId}`).then(r => r.json())\n      ]).then(([user, product]) => {\n        return { order, user, product };\n      });\n    });\n}\n\n// Using Async/Await\nasync function getOrderDetails(orderId) {\n  const order = await fetch(`/api/orders/${orderId}`).then(r => r.json());\n  const [user, product] = await Promise.all([\n    fetch(`/api/users/${order.userId}`).then(r => r.json()),\n    fetch(`/api/products/${order.productId}`).then(r => r.json())\n  ]);\n  return { order, user, product };\n}</code></pre><h3>When to Use Each:</h3><ul><li><strong>Use Promises when:</strong><ul><li>You need to handle multiple asynchronous operations in parallel</li><li>You're working with older code or libraries that use Promises</li><li>You need to chain multiple operations</li></ul></li><li><strong>Use Async/Await when:</strong><ul><li>You want more readable and maintainable code</li><li>You need to handle errors with try/catch</li><li>You're writing new code that doesn't need to support older browsers</li></ul></li></ul>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
   }
 ]
