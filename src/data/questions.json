@@ -300,13 +300,7 @@
     "category": "JavaScript",
     "difficulty": "Beginner"
   },
-  {
-    "id": 43,
-    "question": "What is the difference between <code>shallow copy</code> and <code>deep copy</code> in ES6?",
-    "answer": "<p><strong>Shallow Copy</strong></p><p>A shallow copy copies only the first level of an object or array. If the object has nested objects, the nested objects still refer to the same memory.<p><p><strong>Deep Copy</strong></p><p>A deep copy copies everything, including nested objects. So, changes to the copy do not affect the original.<p>",
-    "category": "JavaScript",
-    "difficulty": "Beginner"
-  },
+  
   {
     "id": 44,
     "question": "What is Angular's change detection?",
@@ -1027,5 +1021,12 @@
     "answer": "<pre><code># Repository Setup\ngit init // Git initialization - creates a new Git repository\ngit clone <repo-url> // Clone remote repository to local machine\n\n# Basic Snapshotting\ngit status // Show working tree status\ngit add <file> // Add file to staging area\ngit add . // Add all files to staging area\ngit commit -m \"Commit message\" // Create commit with message\ngit commit --amend // Modify last commit\n\n# Branching and Merging\ngit branch // List all branches\ngit branch <branch-name> // Create new branch\ngit checkout <branch-name> // Switch to branch\ngit checkout -b <new-branch> // Create and switch to new branch\ngit merge <branch> // Merge branch into current branch\ngit rebase <branch> // Rebase current branch onto another\ngit branch -d <branch> // Delete branch\n\n# Remote Repositories\ngit remote -v // Show remote repositories\ngit remote add origin <url> // Add remote repository\ngit fetch // Download objects from remote\ngit pull // Fetch and merge from remote\ngit pull origin <branch> // Pull specific branch from remote\ngit push // Push commits to remote\ngit push -u origin <branch> // Push and set upstream branch\n\n# Undoing Changes\ngit checkout -- <file> // Discard changes in working directory\ngit reset HEAD <file> // Unstage file\ngit reset --soft HEAD~1 // Undo commit, keep changes staged\ngit reset --hard HEAD~1 // Undo commit and discard changes\ngit revert <commit-hash> // Create new commit that undoes changes\n\n# Logs and History\ngit log // Show commit history\ngit log --oneline // Show compact commit history\ngit show <commit> // Show commit details\ngit diff // Show unstaged changes\ngit diff --staged // Show staged changes\n\n# Stash\ngit stash // Temporarily save changes\ngit stash list // List all stashes\ngit stash apply // Apply most recent stash\ngit stash pop // Apply and remove stash\ngit stash drop // Delete specific stash\ngit stash clear // Delete all stashes\n\n# Tags\ngit tag // List all tags\ngit tag <tagname> // Create lightweight tag\ngit tag -a <tagname> -m \"message\" // Create annotated tag\ngit push origin <tagname> // Push tag to remote\n\n# Submodules\ngit submodule add <repo-url> <path> // Add submodule\ngit submodule init // Initialize submodules\ngit submodule update // Update submodules\ngit submodule update --remote // Update to latest remote commit\ngit submodule deinit <path> // Deinitialize submodule\ngit rm <path> // Remove submodule\n\n# Clean up\ngit clean -f // Remove untracked files\ngit gc // Garbage collection and optimization\n\n# Git Hooks (via Husky or .git/hooks)\n// Setup via scripts - automated actions on Git events\n\n# Misc\ngit help <command> // Get help for specific command</code></pre>",
     "category": "Git",
     "difficulty": "Intermediate"
+  },
+  {
+    "id": 147,
+    "question": "What is the difference between <code>shallow copy</code> and <code>deep copy</code> in ES6?",
+    "answer": "<p><strong>Shallow Copy</strong></p><p>A shallow copy copies only the first level of an object or array. If the object has nested objects, the nested objects still refer to the same memory.<p><p><strong>Deep Copy</strong></p><p>A deep copy copies everything, including nested objects. So, changes to the copy do not affect the original.<p>",
+    "category": "JavaScript",
+    "difficulty": "Beginner"
   }
 ]
