@@ -640,5 +640,313 @@
     "answer": "<p>String.prototype methods are built-in functions that help you work with strings. Here are the most commonly used ones with simple examples:</p><h3>1. toUpperCase() and toLowerCase() - Change case</h3><pre><code>const name = 'John Doe';\nconsole.log(name.toUpperCase()); // 'JOHN DOE'\nconsole.log(name.toLowerCase()); // 'john doe'</code></pre><h3>2. trim() - Remove whitespace</h3><pre><code>const text = '  Hello World  ';\nconsole.log(text.trim()); // 'Hello World'\nconsole.log(text.trimStart()); // 'Hello World  '\nconsole.log(text.trimEnd()); // '  Hello World'</code></pre><h3>3. split() - Split string into array</h3><pre><code>// Split by space\nconst sentence = 'Hello World';\nconst words = sentence.split(' ');\nconsole.log(words); // ['Hello', 'World']\n\n// Split by comma\nconst csv = 'John,Doe,30';\nconst data = csv.split(',');\nconsole.log(data); // ['John', 'Doe', '30']</code></pre><h3>4. replace() and replaceAll() - Replace text</h3><pre><code>// Replace first occurrence\nconst text = 'Hello World';\nconsole.log(text.replace('World', 'JavaScript')); // 'Hello JavaScript'\n\n// Replace all occurrences\nconst text = 'Hello World World';\nconsole.log(text.replaceAll('World', 'JavaScript')); // 'Hello JavaScript JavaScript'</code></pre><h3>5. includes() - Check if string contains text</h3><pre><code>const text = 'Hello World';\nconsole.log(text.includes('World')); // true\nconsole.log(text.includes('JavaScript')); // false</code></pre><h3>6. startsWith() and endsWith() - Check beginning/end</h3><pre><code>const filename = 'document.pdf';\nconsole.log(filename.endsWith('.pdf')); // true\nconsole.log(filename.startsWith('doc')); // true</code></pre><h3>7. slice() - Extract part of string</h3><pre><code>const text = 'Hello World';\nconsole.log(text.slice(0, 5)); // 'Hello'\nconsole.log(text.slice(6)); // 'World'\nconsole.log(text.slice(-5)); // 'World'</code></pre><h3>8. padStart() and padEnd() - Add padding</h3><pre><code>// Pad with zeros\nconst number = '5';\nconsole.log(number.padStart(3, '0')); // '005'\n\n// Pad with spaces\nconst name = 'John';\nconsole.log(name.padEnd(10, ' ')); // 'John      '</code></pre><h3>9. repeat() - Repeat string</h3><pre><code>const text = 'Ha';\nconsole.log(text.repeat(3)); // 'HaHaHa'</code></pre><h3>10. indexOf() and lastIndexOf() - Find position</h3><pre><code>const text = 'Hello World World';\nconsole.log(text.indexOf('World')); // 6\nconsole.log(text.lastIndexOf('World')); // 12</code></pre><h3>Real-world Examples:</h3><pre><code>// Format phone number\nfunction formatPhoneNumber(number) {\n  return number\n    .replace(/(\\d{3})(\\d{3})(\\d{4})/, '($1) $2-$3');\n}\nconsole.log(formatPhoneNumber('1234567890')); // '(123) 456-7890'\n\n// Validate email\nfunction isValidEmail(email) {\n  return email.includes('@') && email.includes('.');\n}\nconsole.log(isValidEmail('john@example.com')); // true\n\n// Capitalize first letter\nfunction capitalize(str) {\n  return str.charAt(0).toUpperCase() + str.slice(1);\n}\nconsole.log(capitalize('hello')); // 'Hello'</code></pre>",
     "category": "JavaScript",
     "difficulty": "Beginner"
+  },
+  {
+    "id": 92,
+    "question": "What is TypeScript and what are its main features?",
+    "answer": "<p>TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It adds static typing to JavaScript, making it more robust and maintainable.</p><h3>Main Features:</h3><ul><li>Static typing</li><li>Object-oriented programming</li><li>Type inference</li><li>Interfaces</li><li>Generics</li></ul><h3>Example:</h3><pre><code>// JavaScript\nfunction add(a, b) {\n  return a + b;\n}\n\n// TypeScript\nfunction add(a: number, b: number): number {\n  return a + b;\n}\n\n// Using the function\nconsole.log(add(5, 3)); // 8\nconsole.log(add('5', '3')); // Error: Argument of type 'string' is not assignable to parameter of type 'number'</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 93,
+    "question": "What are TypeScript Interfaces and how do they work?",
+    "answer": "<p>Interfaces in TypeScript define the structure of an object. They act like contracts that objects must follow.</p><h3>Basic Interface Example:</h3><pre><code>// Define interface\ninterface User {\n  name: string;\n  age: number;\n  email?: string; // Optional property\n}\n\n// Use interface\nconst user: User = {\n  name: 'John',\n  age: 30\n  // email is optional, so we can omit it\n};\n\n// Function using interface\nfunction printUser(user: User): void {\n  console.log(`${user.name} is ${user.age} years old`);\n}</code></pre><h3>Extending Interfaces:</h3><pre><code>interface Employee extends User {\n  department: string;\n  salary: number;\n}\n\nconst employee: Employee = {\n  name: 'Jane',\n  age: 25,\n  department: 'IT',\n  salary: 50000\n};</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 94,
+    "question": "What are TypeScript Generics and when should you use them?",
+    "answer": "<p>Generics allow you to write flexible, reusable code that can work with different types. They're like templates for types.</p><h3>Basic Generic Example:</h3><pre><code>// Generic function\nfunction getFirst<T>(arr: T[]): T {\n  return arr[0];\n}\n\n// Using the generic function\nconst numbers = getFirst<number>([1, 2, 3]); // number\nconst strings = getFirst<string>(['a', 'b', 'c']); // string</code></pre><h3>Generic Interface Example:</h3><pre><code>interface Box<T> {\n  value: T;\n}\n\nconst numberBox: Box<number> = { value: 42 };\nconst stringBox: Box<string> = { value: 'Hello' };</code></pre><h3>Generic Class Example:</h3><pre><code>class Container<T> {\n  private items: T[] = [];\n\n  add(item: T): void {\n    this.items.push(item);\n  }\n\n  getFirst(): T {\n    return this.items[0];\n  }\n}\n\n// Using the generic class\nconst numberContainer = new Container<number>();\nnumberContainer.add(1);\nnumberContainer.add(2);\nconsole.log(numberContainer.getFirst()); // 1</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 95,
+    "question": "What is Type Inference in TypeScript?",
+    "answer": "<p>Type inference is TypeScript's ability to automatically determine the type of a variable based on its value. It helps reduce the need for explicit type annotations.</p><h3>Basic Examples:</h3><pre><code>// Type inference with variables\nlet name = 'John'; // TypeScript infers type as string\nlet age = 30; // TypeScript infers type as number\nlet isActive = true; // TypeScript infers type as boolean\n\n// Type inference with arrays\nconst numbers = [1, 2, 3]; // TypeScript infers type as number[]\nconst mixed = [1, 'two', 3]; // TypeScript infers type as (number | string)[]\n\n// Type inference with objects\nconst user = {\n  name: 'John',\n  age: 30\n}; // TypeScript infers type as { name: string; age: number }</code></pre><h3>Function Return Type Inference:</h3><pre><code>// TypeScript infers return type as number\nfunction add(a: number, b: number) {\n  return a + b;\n}\n\n// TypeScript infers return type as string\nfunction greet(name: string) {\n  return `Hello, ${name}!`;\n}</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 96,
+    "question": "What are Type Guards in TypeScript?",
+    "answer": "<p>Type guards are expressions that perform runtime checks to ensure a value is of a specific type. They help narrow down types within conditional blocks.</p><h3>Basic Type Guard Examples:</h3><pre><code>// typeof type guard\nfunction processValue(value: string | number) {\n  if (typeof value === 'string') {\n    // TypeScript knows value is string here\n    console.log(value.toUpperCase());\n  } else {\n    // TypeScript knows value is number here\n    console.log(value.toFixed(2));\n  }\n}\n\n// instanceof type guard\nclass Animal {\n  name: string;\n  constructor(name: string) {\n    this.name = name;\n  }\n}\n\nclass Dog extends Animal {\n  bark() {\n    return 'Woof!';\n  }\n}\n\nfunction processAnimal(animal: Animal) {\n  if (animal instanceof Dog) {\n    // TypeScript knows animal is Dog here\n    console.log(animal.bark());\n  }\n}</code></pre><h3>Custom Type Guard Example:</h3><pre><code>interface Bird {\n  fly(): void;\n  layEggs(): void;\n}\n\ninterface Fish {\n  swim(): void;\n  layEggs(): void;\n}\n\n// Custom type guard\nfunction isFish(pet: Fish | Bird): pet is Fish {\n  return (pet as Fish).swim !== undefined;\n}\n\nfunction move(pet: Fish | Bird) {\n  if (isFish(pet)) {\n    // TypeScript knows pet is Fish here\n    pet.swim();\n  } else {\n    // TypeScript knows pet is Bird here\n    pet.fly();\n  }\n}</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 97,
+    "question": "What are TypeScript Decorators and how do they work?",
+    "answer": "<p>Decorators are a design pattern that allows you to add behavior to classes and their members. They are functions that can be attached to classes, methods, or properties.</p><h3>Basic Decorator Examples:</h3><pre><code>// Class decorator\nfunction log(target: any) {\n  console.log('Class decorator called');\n}\n\n@log\nclass Example {\n  // Class implementation\n}\n\n// Method decorator\nfunction logMethod(target: any, propertyKey: string, descriptor: PropertyDescriptor) {\n  const originalMethod = descriptor.value;\n\n  descriptor.value = function(...args: any[]) {\n    console.log(`Calling ${propertyKey} with:`, args);\n    return originalMethod.apply(this, args);\n  };\n\n  return descriptor;\n}\n\nclass Calculator {\n  @logMethod\n  add(a: number, b: number): number {\n    return a + b;\n  }\n}</code></pre><h3>Property Decorator Example:</h3><pre><code>function required(target: any, propertyKey: string) {\n  let value: string;\n\n  const getter = function() {\n    return value;\n  };\n\n  const setter = function(newVal: string) {\n    if (!newVal) {\n      throw new Error(`${propertyKey} is required`);\n    }\n    value = newVal;\n  };\n\n  Object.defineProperty(target, propertyKey, {\n    get: getter,\n    set: setter\n  });\n}\n\nclass User {\n  @required\n  name: string;\n\n  constructor(name: string) {\n    this.name = name;\n  }\n}</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 98,
+    "question": "What are TypeScript Utility Types?",
+    "answer": "<p>Utility types are built-in TypeScript types that help transform existing types. They make it easier to work with types in a flexible way.</p><h3>Common Utility Types:</h3><pre><code>// Partial<T> - Makes all properties optional\ninterface User {\n  name: string;\n  age: number;\n}\n\ntype PartialUser = Partial<User>;\n// Equivalent to:\n// { name?: string; age?: number; }\n\n// Required<T> - Makes all properties required\ninterface Config {\n  name?: string;\n  age?: number;\n}\n\ntype RequiredConfig = Required<Config>;\n// Equivalent to:\n// { name: string; age: number; }\n\n// Pick<T, K> - Select specific properties\ninterface Todo {\n  title: string;\n  description: string;\n  completed: boolean;\n}\n\ntype TodoPreview = Pick<Todo, 'title' | 'completed'>;\n// Equivalent to:\n// { title: string; completed: boolean; }\n\n// Omit<T, K> - Remove specific properties\ntype TodoInfo = Omit<Todo, 'completed'>;\n// Equivalent to:\n// { title: string; description: string; }</code></pre><h3>More Utility Types:</h3><pre><code>// Record<K, T> - Create type with specific keys and values\ntype CatInfo = {\n  age: number;\n  breed: string;\n};\n\ntype CatName = 'miffy' | 'boris';\nconst cats: Record<CatName, CatInfo> = {\n  miffy: { age: 10, breed: 'Persian' },\n  boris: { age: 5, breed: 'Maine Coon' }\n};\n\n// ReturnType<T> - Get return type of function\ntype T0 = ReturnType<() => string>; // string\ntype T1 = ReturnType<(s: string) => void>; // void\n\n// Parameters<T> - Get parameters of function\ntype T2 = Parameters<(name: string, age: number) => void>; // [string, number]</code></pre>",
+    "category": "TypeScript",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 99,
+    "question": "What is the difference between 'type' and 'interface' in TypeScript?",
+    "answer": "<p>Both 'type' and 'interface' are used to define custom types in TypeScript, but they have some key differences.</p><h3>Basic Examples:</h3><pre><code>// Interface\ninterface User {\n  name: string;\n  age: number;\n}\n\n// Type\ntype User = {\n  name: string;\n  age: number;\n};\n\n// Both can be extended\ninterface Employee extends User {\n  department: string;\n}\n\ntype Employee = User & {\n  department: string;\n};</code></pre><h3>Key Differences:</h3><ul><li><strong>Declaration Merging:</strong><ul><li>Interfaces can be merged</li><li>Types cannot be merged</li></ul></li><li><strong>Computed Properties:</strong><ul><li>Types can use computed properties</li><li>Interfaces cannot</li></ul></li><li><strong>Union Types:</strong><ul><li>Types can create union types</li><li>Interfaces cannot</li></ul></li></ul><h3>Examples of Differences:</h3><pre><code>// Interface merging\ninterface Animal {\n  name: string;\n}\ninterface Animal {\n  age: number;\n}\n// Result: { name: string; age: number; }\n\n// Type union\ntype Status = 'pending' | 'approved' | 'rejected';\n\n// Computed properties in type\ntype Keys = 'firstname' | 'surname';\ntype DudeType = {\n  [key in Keys]: string;\n};\n// Result: { firstname: string; surname: string; }</code></pre><h3>When to Use Each:</h3><ul><li><strong>Use Interface when:</strong><ul><li>Defining object shapes</li><li>Need declaration merging</li><li>Working with object-oriented design</li></ul></li><li><strong>Use Type when:</strong><ul><li>Creating union types</li><li>Working with tuples</li><li>Need computed properties</li><li>Creating mapped types</li></ul></li></ul>",
+    "category": "TypeScript",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 100,
+    "question": "What are TypeScript Enums and when should you use them?",
+    "answer": "<p>Enums in TypeScript are a way to define a set of named constants. They make it easier to work with a set of related values.</p><h3>Basic Enum Examples:</h3><pre><code>// Numeric enum\nenum Direction {\n  Up = 1,\n  Down,\n  Left,\n  Right\n}\n\n// String enum\nenum UserRole {\n  Admin = 'ADMIN',\n  User = 'USER',\n  Guest = 'GUEST'\n}\n\n// Using enums\nfunction move(direction: Direction) {\n  switch (direction) {\n    case Direction.Up:\n      console.log('Moving up');\n      break;\n    case Direction.Down:\n      console.log('Moving down');\n      break;\n    // ...\n  }\n}</code></pre><h3>Const Enums:</h3><pre><code>// Const enum (more efficient)\nconst enum Colors {\n  Red,\n  Green,\n  Blue\n}\n\n// Using const enum\nlet color = Colors.Red;\n// Compiles to: let color = 0;</code></pre><h3>Real-world Example:</h3><pre><code>// HTTP Status Codes\nenum HttpStatus {\n  OK = 200,\n  BadRequest = 400,\n  Unauthorized = 401,\n  Forbidden = 403,\n  NotFound = 404,\n  InternalServerError = 500\n}\n\nfunction handleResponse(status: HttpStatus) {\n  switch (status) {\n    case HttpStatus.OK:\n      return 'Success';\n    case HttpStatus.NotFound:\n      return 'Resource not found';\n    case HttpStatus.InternalServerError:\n      return 'Server error';\n    default:\n      return 'Unknown status';\n  }\n}</code></pre><h3>When to Use Enums:</h3><ul><li>When you have a set of related constants</li><li>When you need type safety for a set of values</li><li>When you want to provide better code documentation</li><li>When you need to iterate over a set of values</li></ul>",
+    "category": "TypeScript",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 101,
+    "question": "What is Dependency Injection (DI) in Angular and how does it work?",
+    "answer": "<p>Dependency Injection is a design pattern where a class receives its dependencies from external sources rather than creating them itself. Angular has a built-in DI system.</p><h3>Basic Example:</h3><pre><code>// Service\n@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n  constructor() {}\n  getUsers() {\n    return ['John', 'Jane'];\n  }\n}\n\n// Component using the service\n@Component({\n  selector: 'app-users',\n  template: '...'\n})\nexport class UsersComponent {\n  constructor(private userService: UserService) {}\n  \n  ngOnInit() {\n    const users = this.userService.getUsers();\n  }\n}</code></pre><h3>Different Ways to Provide Services:</h3><pre><code>// 1. Root level (singleton)\n@Injectable({\n  providedIn: 'root'\n})\n\n// 2. Module level\n@NgModule({\n  providers: [UserService]\n})\n\n// 3. Component level\n@Component({\n  providers: [UserService]\n})</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 102,
+    "question": "What is the difference between ngOnInit and constructor in Angular?",
+    "answer": "<p>The constructor and ngOnInit serve different purposes in Angular components.</p><h3>Constructor:</h3><ul><li>Called when the class is instantiated</li><li>Used for dependency injection</li><li>Should only be used to initialize class members</li></ul><h3>ngOnInit:</h3><ul><li>Called after the constructor</li><li>Called after Angular has initialized all data-bound properties</li><li>Best place to put initialization logic</li></ul><h3>Example:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent implements OnInit {\n  // Constructor - for DI only\n  constructor(\n    private userService: UserService,\n    private router: Router\n  ) {}\n\n  // ngOnInit - for initialization\n  ngOnInit() {\n    // Safe to access @Input properties\n    // Safe to make HTTP calls\n    // Safe to initialize component state\n    this.loadData();\n  }\n\n  private loadData() {\n    this.userService.getData().subscribe(data => {\n      // Handle data\n    });\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 103,
+    "question": "What is the difference between BehaviorSubject and Subject in RxJS?",
+    "answer": "<p>BehaviorSubject and Subject are both types of Observables in RxJS, but they have key differences in how they handle data.</p><h3>Subject:</h3><ul><li>Doesn't store the last value</li><li>Subscribers only receive values emitted after they subscribe</li></ul><h3>BehaviorSubject:</h3><ul><li>Stores the last value</li><li>New subscribers receive the last emitted value immediately</li><li>Requires an initial value</li></ul><h3>Example:</h3><pre><code>// Subject Example\nconst subject = new Subject<number>();\nsubject.next(1);\nsubject.next(2);\n\nsubject.subscribe(value => {\n  console.log('Subject:', value); // Only receives 3\n});\nsubject.next(3);\n\n// BehaviorSubject Example\nconst behaviorSubject = new BehaviorSubject<number>(0);\nbehaviorSubject.next(1);\nbehaviorSubject.next(2);\n\nbehaviorSubject.subscribe(value => {\n  console.log('BehaviorSubject:', value); // Receives 2 immediately, then 3\n});\nbehaviorSubject.next(3);</code></pre><h3>Real-world Example:</h3><pre><code>@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n  private userSubject = new BehaviorSubject<User | null>(null);\n  user$ = this.userSubject.asObservable();\n\n  setUser(user: User) {\n    this.userSubject.next(user);\n  }\n\n  getUser() {\n    return this.userSubject.value;\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 104,
+    "question": "What is Change Detection in Angular and how does it work?",
+    "answer": "<p>Change Detection is Angular's mechanism to detect changes in the application state and update the view accordingly.</p><h3>How it Works:</h3><ul><li>Angular creates a change detector for each component</li><li>Checks for changes in component properties</li><li>Updates the view if changes are detected</li></ul><h3>Example:</h3><pre><code>@Component({\n  selector: 'app-counter',\n  template: `\n    <p>Count: {{ count }}</p>\n    <button (click)='increment()'>Increment</button>\n  `\n})\nexport class CounterComponent {\n  count = 0;\n\n  increment() {\n    this.count++; // Triggers change detection\n  }\n}</code></pre><h3>Change Detection Strategies:</h3><pre><code>// Default strategy (CheckAlways)\n@Component({\n  selector: 'app-default',\n  template: '...'\n})\nexport class DefaultComponent {}\n\n// OnPush strategy\n@Component({\n  selector: 'app-onpush',\n  template: '...',\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class OnPushComponent {}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 105,
+    "question": "What is NgModule in Angular and what are its main properties?",
+    "answer": "<p>NgModule is a decorator that marks a class as an Angular module. It helps organize the application into cohesive blocks of functionality.</p><h3>Main Properties:</h3><ul><li>declarations: Components, directives, and pipes</li><li>imports: Other modules</li><li>providers: Services</li><li>exports: Components, directives, and pipes to be used in other modules</li><li>bootstrap: Root component</li></ul><h3>Example:</h3><pre><code>@NgModule({\n  declarations: [\n    AppComponent,\n    UserComponent,\n    UserListComponent\n  ],\n  imports: [\n    BrowserModule,\n    HttpClientModule,\n    RouterModule\n  ],\n  providers: [\n    UserService,\n    AuthService\n  ],\n  exports: [\n    UserComponent\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }</code></pre><h3>Feature Module Example:</h3><pre><code>@NgModule({\n  declarations: [\n    UserListComponent,\n    UserDetailComponent\n  ],\n  imports: [\n    CommonModule,\n    RouterModule.forChild(userRoutes)\n  ],\n  providers: [UserService]\n})\nexport class UserModule { }</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 106,
+    "question": "What is the difference between RouterModule.forRoot() and RouterModule.forChild()?",
+    "answer": "<p>RouterModule.forRoot() and RouterModule.forChild() are used to configure routing in Angular applications, but they serve different purposes.</p><h3>RouterModule.forRoot():</h3><ul><li>Used in the root module</li><li>Configures the router service</li><li>Should be used only once in the application</li></ul><h3>RouterModule.forChild():</h3><ul><li>Used in feature modules</li><li>Adds additional routes to the existing configuration</li><li>Can be used multiple times</li></ul><h3>Example:</h3><pre><code>// app.module.ts (Root Module)\n@NgModule({\n  imports: [\n    RouterModule.forRoot([\n      { path: '', component: HomeComponent },\n      { path: 'about', component: AboutComponent }\n    ])\n  ]\n})\nexport class AppModule { }\n\n// user.module.ts (Feature Module)\n@NgModule({\n  imports: [\n    RouterModule.forChild([\n      { path: 'users', component: UserListComponent },\n      { path: 'users/:id', component: UserDetailComponent }\n    ])\n  ]\n})\nexport class UserModule { }</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 107,
+    "question": "What is NgZone in Angular and when should you use it?",
+    "answer": "<p>NgZone is a service that helps Angular detect changes by wrapping asynchronous operations. It's useful when working with code outside Angular's zone.</p><h3>Basic Example:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent {\n  constructor(private ngZone: NgZone) {}\n\n  // Inside Angular zone (default)\n  insideZone() {\n    setTimeout(() => {\n      // This will trigger change detection\n      this.value = 'Updated';\n    }, 1000);\n  }\n\n  // Outside Angular zone\n  outsideZone() {\n    this.ngZone.runOutsideAngular(() => {\n      setTimeout(() => {\n        // This won't trigger change detection\n        this.value = 'Updated';\n        // Manually trigger change detection if needed\n        this.ngZone.run(() => {\n          // Now change detection will run\n        });\n      }, 1000);\n    });\n  }\n}</code></pre><h3>Real-world Example (Performance Optimization):</h3><pre><code>@Component({\n  selector: 'app-chart',\n  template: '...'\n})\nexport class ChartComponent {\n  constructor(private ngZone: NgZone) {}\n\n  initChart() {\n    this.ngZone.runOutsideAngular(() => {\n      // Heavy chart initialization\n      this.chart = new Chart(/* ... */);\n      \n      // Update chart data without triggering change detection\n      this.chart.update();\n    });\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 108,
+    "question": "What are Guards in Angular and what are their types?",
+    "answer": "<p>Guards are interfaces that control access to routes in Angular. They help protect routes from unauthorized access.</p><h3>Types of Guards:</h3><ul><li>CanActivate: Controls if a route can be activated</li><li>CanDeactivate: Controls if a user can leave a route</li><li>Resolve: Resolves data before activating a route</li><li>CanActivateChild: Controls access to child routes</li><li>CanMatch: Controls if a route can be matched</li></ul><h3>Example:</h3><pre><code>// Auth Guard\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthGuard implements CanActivate {\n  constructor(\n    private authService: AuthService,\n    private router: Router\n  ) {}\n\n  canActivate(): boolean {\n    if (this.authService.isAuthenticated()) {\n      return true;\n    }\n    this.router.navigate(['/login']);\n    return false;\n  }\n}\n\n// Using the guard in routes\nconst routes: Routes = [\n  {\n    path: 'admin',\n    component: AdminComponent,\n    canActivate: [AuthGuard]\n  }\n];</code></pre><h3>Deactivate Guard Example:</h3><pre><code>@Injectable({\n  providedIn: 'root'\n})\nexport class DeactivateGuard implements CanDeactivate<EditComponent> {\n  canDeactivate(\n    component: EditComponent\n  ): boolean | Observable<boolean> {\n    if (component.hasUnsavedChanges()) {\n      return confirm('You have unsaved changes. Leave anyway?');\n    }\n    return true;\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 109,
+    "question": "What is a Resolver in Angular and how does it work?",
+    "answer": "<p>A Resolver is a service that resolves data before a route is activated. It ensures that data is available before the component is displayed.</p><h3>Basic Example:</h3><pre><code>@Injectable({\n  providedIn: 'root'\n})\nexport class UserResolver implements Resolve<User> {\n  constructor(private userService: UserService) {}\n\n  resolve(\n    route: ActivatedRouteSnapshot\n  ): Observable<User> | Promise<User> | User {\n    const userId = route.paramMap.get('id');\n    return this.userService.getUser(userId);\n  }\n}\n\n// Using the resolver in routes\nconst routes: Routes = [\n  {\n    path: 'user/:id',\n    component: UserComponent,\n    resolve: {\n      user: UserResolver\n    }\n  }\n];\n\n// Accessing resolved data in component\n@Component({\n  selector: 'app-user',\n  template: '...'\n})\nexport class UserComponent implements OnInit {\n  constructor(private route: ActivatedRoute) {}\n\n  ngOnInit() {\n    this.route.data.subscribe(data => {\n      const user = data['user'];\n      // Use the resolved data\n    });\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 110,
+    "question": "What are Dynamic Components in Angular and how do you create them?",
+    "answer": "<p>Dynamic Components are components that are created and added to the DOM at runtime. They're useful for creating flexible UIs.</p><h3>Example:</h3><pre><code>// Dynamic component\n@Component({\n  selector: 'app-alert',\n  template: `\n    <div class='alert'>\n      <h2>{{ message }}</h2>\n      <button (click)='close()'>Close</button>\n    </div>\n  `\n})\nexport class AlertComponent {\n  @Input() message: string;\n  @Output() close = new EventEmitter<void>();\n}\n\n// Component that creates dynamic components\n@Component({\n  selector: 'app-container',\n  template: '<div #alertContainer></div>'\n})\nexport class ContainerComponent {\n  @ViewChild('alertContainer', { read: ViewContainerRef })\n  container: ViewContainerRef;\n\n  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}\n\n  createAlert(message: string) {\n    // Clear previous alerts\n    this.container.clear();\n\n    // Create component\n    const factory = this.componentFactoryResolver\n      .resolveComponentFactory(AlertComponent);\n    const componentRef = this.container.createComponent(factory);\n\n    // Set inputs\n    componentRef.instance.message = message;\n\n    // Handle outputs\n    componentRef.instance.close.subscribe(() => {\n      componentRef.destroy();\n    });\n  }\n}</code></pre><h3>Using the Dynamic Component:</h3><pre><code>// In the module\n@NgModule({\n  declarations: [AlertComponent],\n  entryComponents: [AlertComponent]\n})\nexport class AppModule { }\n\n// In the template\n<button (click)='createAlert(\"Hello!\")'>Show Alert</button></code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 111,
+    "question": "What is Module Federation in Angular and how does it work?",
+    "answer": "<p>Module Federation is a feature that allows you to dynamically load modules from different applications at runtime. It's useful for micro-frontend architectures.</p><h3>Basic Setup:</h3><pre><code>// webpack.config.js (Host Application)\nconst ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');\n\nmodule.exports = {\n  plugins: [\n    new ModuleFederationPlugin({\n      name: 'host',\n      remotes: {\n        mfe1: 'mfe1@http://localhost:3000/remoteEntry.js'\n      },\n      shared: ['@angular/core', '@angular/common']\n    })\n  ]\n};\n\n// webpack.config.js (Remote Application)\nmodule.exports = {\n  plugins: [\n    new ModuleFederationPlugin({\n      name: 'mfe1',\n      filename: 'remoteEntry.js',\n      exposes: {\n        './Component': './src/app/component'\n      },\n      shared: ['@angular/core', '@angular/common']\n    })\n  ]\n};</code></pre><h3>Using Remote Components:</h3><pre><code>// app.module.ts\n@NgModule({\n  imports: [\n    RouterModule.forRoot([\n      {\n        path: 'mfe1',\n        loadChildren: () => import('mfe1/Component')\n      }\n    ])\n  ]\n})\nexport class AppModule { }</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 112,
+    "question": "What is the difference between ng-template, ng-container, and ng-content?",
+    "answer": "<p>These three directives serve different purposes in Angular templates.</p><h3>ng-template:</h3><ul><li>Defines a template that can be reused</li><li>Not rendered by default</li><li>Used with structural directives</li></ul><h3>ng-container:</h3><ul><li>Grouping element that doesn't add to the DOM</li><li>Useful for applying multiple structural directives</li></ul><h3>ng-content:</h3><ul><li>Projects content from parent to child</li><li>Used for content projection</li></ul><h3>Examples:</h3><pre><code>// ng-template example\n<ng-template #loading>\n  <div>Loading...</div>\n</ng-template>\n\n<div *ngIf='isLoading; else loading'>\n  Content\n</div>\n\n// ng-container example\n<ng-container *ngIf='isLoggedIn'>\n  <div>Welcome</div>\n  <div>Profile</div>\n</ng-container>\n\n// ng-content example\n// parent.component.html\n<app-card>\n  <h1>Title</h1>\n  <p>Content</p>\n</app-card>\n\n// card.component.html\n<div class='card'>\n  <ng-content></ng-content>\n</div></code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 113,
+    "question": "What is the difference between ViewChild and ContentChild?",
+    "answer": "<p>ViewChild and ContentChild are decorators used to access child elements, but they work in different contexts.</p><h3>ViewChild:</h3><ul><li>Accesses elements in the component's view</li><li>Available after view initialization</li></ul><h3>ContentChild:</h3><ul><li>Accesses projected content</li><li>Available after content initialization</li></ul><h3>Example:</h3><pre><code>// Parent Component\n@Component({\n  selector: 'app-parent',\n  template: `\n    <div #viewChild>View Child</div>\n    <app-child>\n      <div #contentChild>Content Child</div>\n    </app-child>\n  `\n})\nexport class ParentComponent implements AfterViewInit, AfterContentInit {\n  @ViewChild('viewChild') viewChild: ElementRef;\n  @ContentChild('contentChild') contentChild: ElementRef;\n\n  ngAfterViewInit() {\n    // ViewChild is available here\n    console.log(this.viewChild);\n  }\n\n  ngAfterContentInit() {\n    // ContentChild is available here\n    console.log(this.contentChild);\n  }\n}\n\n// Child Component\n@Component({\n  selector: 'app-child',\n  template: '<ng-content></ng-content>'\n})\nexport class ChildComponent {}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 114,
+    "question": "What is OnPush Change Detection and when should you use it?",
+    "answer": "<p>OnPush is a change detection strategy that improves performance by only checking for changes when inputs change or events occur.</p><h3>Basic Example:</h3><pre><code>@Component({\n  selector: 'app-user',\n  template: `\n    <div>{{ user.name }}</div>\n    <div>{{ user.email }}</div>\n  `,\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class UserComponent {\n  @Input() user: User;\n\n  // Change detection will run when:\n  // 1. @Input() properties change\n  // 2. Events occur in the template\n  // 3. Observable emits in the template\n  // 4. ChangeDetectorRef.detectChanges() is called\n}</code></pre><h3>Working with OnPush:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...',\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ExampleComponent {\n  constructor(\n    private cdr: ChangeDetectorRef,\n    private userService: UserService\n  ) {}\n\n  updateUser() {\n    this.userService.getUser().subscribe(user => {\n      this.user = user;\n      // Manually trigger change detection\n      this.cdr.detectChanges();\n    });\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 115,
+    "question": "How do you handle memory leaks in Angular?",
+    "answer": "<p>Memory leaks in Angular often occur due to unmanaged subscriptions and event listeners. Here are common solutions.</p><h3>Common Causes and Solutions:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent implements OnInit, OnDestroy {\n  private destroy$ = new Subject<void>();\n\n  constructor(private userService: UserService) {}\n\n  ngOnInit() {\n    // Using takeUntil\n    this.userService.getUsers()\n      .pipe(takeUntil(this.destroy$))\n      .subscribe(users => {\n        // Handle users\n      });\n\n    // Using async pipe (preferred)\n    this.users$ = this.userService.getUsers();\n  }\n\n  ngOnDestroy() {\n    this.destroy$.next();\n    this.destroy$.complete();\n  }\n}</code></pre><h3>Template Example:</h3><pre><code>// Using async pipe (automatically handles subscription)\n<ng-container *ngIf='users$ | async as users'>\n  <div *ngFor='let user of users'>\n    {{ user.name }}\n  </div>\n</ng-container></code></pre><h3>Event Listener Example:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent implements OnInit, OnDestroy {\n  private resizeListener: () => void;\n\n  ngOnInit() {\n    this.resizeListener = () => {\n      // Handle resize\n    };\n    window.addEventListener('resize', this.resizeListener);\n  }\n\n  ngOnDestroy() {\n    window.removeEventListener('resize', this.resizeListener);\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 116,
+    "question": "What are Standalone Components in Angular?",
+    "answer": "<p>Standalone Components are a new feature in Angular that allows you to create components without declaring them in an NgModule.</p><h3>Basic Example:</h3><pre><code>@Component({\n  selector: 'app-standalone',\n  template: '...',\n  standalone: true,\n  imports: [CommonModule, RouterModule]\n})\nexport class StandaloneComponent {}\n\n// Using in routes\nconst routes: Routes = [\n  {\n    path: 'standalone',\n    loadComponent: () => import('./standalone.component')\n      .then(m => m.StandaloneComponent)\n  }\n];</code></pre><h3>With Dependencies:</h3><pre><code>@Component({\n  selector: 'app-user-list',\n  template: `\n    <div *ngFor='let user of users$ | async'>\n      {{ user.name }}\n    </div>\n  `,\n  standalone: true,\n  imports: [CommonModule, UserCardComponent],\n  providers: [UserService]\n})\nexport class UserListComponent {\n  users$ = this.userService.getUsers();\n\n  constructor(private userService: UserService) {}\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 117,
+    "question": "What is Angular Universal and how do you implement it?",
+    "answer": "<p>Angular Universal is a technology that renders Angular applications on the server. It improves performance and SEO.</p><h3>Basic Setup:</h3><pre><code>// app.module.ts\n@NgModule({\n  imports: [\n    BrowserModule.withServerTransition({ appId: 'my-app' }),\n    ServerModule\n  ]\n})\nexport class AppModule { }\n\n// app.server.module.ts\n@NgModule({\n  imports: [\n    AppModule,\n    ServerModule\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppServerModule { }</code></pre><h3>Server-side Rendering Example:</h3><pre><code>// app.component.ts\n@Component({\n  selector: 'app-root',\n  template: `\n    <div>\n      <h1>{{ title }}</h1>\n      <div *ngIf='isBrowser'>Browser only content</div>\n    </div>\n  `\n})\nexport class AppComponent {\n  title = 'My App';\n  isBrowser: boolean;\n\n  constructor(@Inject(PLATFORM_ID) platformId: Object) {\n    this.isBrowser = isPlatformBrowser(platformId);\n  }\n}</code></pre><h3>Running the Application:</h3><pre><code>// package.json\n{\n  \"scripts\": {\n    \"dev:ssr\": \"ng run my-app:serve-ssr\",\n    \"build:ssr\": \"ng build && ng run my-app:server\",\n    \"serve:ssr\": \"node dist/my-app/server/main.js\"\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 118,
+    "question": "What are Pipes in Angular and how do you create custom pipes?",
+    "answer": "<p>Pipes are used to transform data in templates. Angular provides built-in pipes and allows you to create custom ones.</p><h3>Built-in Pipes Example:</h3><pre><code>// Using built-in pipes\n<div>{{ date | date:'short' }}</div>\n<div>{{ price | currency:'USD' }}</div>\n<div>{{ text | uppercase }}</div>\n<div>{{ items | slice:0:2 }}</div></code></pre><h3>Custom Pipe Example:</h3><pre><code>@Pipe({\n  name: 'truncate'\n})\nexport class TruncatePipe implements PipeTransform {\n  transform(value: string, limit: number = 100): string {\n    if (!value) return '';\n    return value.length > limit\n      ? value.substring(0, limit) + '...'\n      : value;\n  }\n}\n\n// Using the custom pipe\n<div>{{ longText | truncate:50 }}</div></code></pre><h3>Pure vs Impure Pipes:</h3><pre><code>@Pipe({\n  name: 'filter',\n  pure: false // Impure pipe\n})\nexport class FilterPipe implements PipeTransform {\n  transform(items: any[], filter: string): any[] {\n    if (!items || !filter) return items;\n    return items.filter(item =>\n      item.name.toLowerCase().includes(filter.toLowerCase())\n    );\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 119,
+    "question": "What are Angular Lifecycle Hooks and when should you use them?",
+    "answer": "<p>Lifecycle hooks are methods that Angular calls at specific points in a component's lifecycle.</p><h3>Common Lifecycle Hooks:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent implements\n  OnInit,\n  OnDestroy,\n  AfterViewInit,\n  AfterContentInit {\n\n  // Called after data-bound properties are initialized\n  ngOnInit() {\n    // Initialize component\n  }\n\n  // Called before the component is destroyed\n  ngOnDestroy() {\n    // Clean up resources\n  }\n\n  // Called after the view is initialized\n  ngAfterViewInit() {\n    // Access ViewChild\n  }\n\n  // Called after content is projected\n  ngAfterContentInit() {\n    // Access ContentChild\n  }\n\n  // Called when data-bound properties change\n  ngOnChanges(changes: SimpleChanges) {\n    // Handle changes\n  }\n\n  // Called after every change detection run\n  ngDoCheck() {\n    // Custom change detection\n  }\n}</code></pre><h3>Real-world Example:</h3><pre><code>@Component({\n  selector: 'app-user-profile',\n  template: '...'\n})\nexport class UserProfileComponent implements OnInit, OnDestroy {\n  private destroy$ = new Subject<void>();\n\n  constructor(private userService: UserService) {}\n\n  ngOnInit() {\n    // Load user data\n    this.userService.getUser()\n      .pipe(takeUntil(this.destroy$))\n      .subscribe(user => {\n        // Handle user data\n      });\n  }\n\n  ngOnDestroy() {\n    // Clean up subscriptions\n    this.destroy$.next();\n    this.destroy$.complete();\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 120,
+    "question": "What is the Injector in Angular and how does it work?",
+    "answer": "<p>The Injector is responsible for creating instances of dependencies and maintaining a single instance of each dependency within its scope.</p><h3>Basic Example:</h3><pre><code>// Service\n@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n  constructor() {}\n  getUsers() { return []; }\n}\n\n// Component\n@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent {\n  constructor(private injector: Injector) {\n    // Get service instance\n    const userService = this.injector.get(UserService);\n  }\n}</code></pre><h3>Custom Injector Example:</h3><pre><code>@Component({\n  selector: 'app-parent',\n  template: '...'\n})\nexport class ParentComponent {\n  constructor(private injector: Injector) {}\n\n  createChildComponent() {\n    const childInjector = Injector.create({\n      providers: [\n        { provide: UserService, useClass: MockUserService }\n      ],\n      parent: this.injector\n    });\n\n    const childComponent = createComponent(ChildComponent, {\n      elementInjector: childInjector\n    });\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 121,
+    "question": "What is trackBy in Angular and why should you use it?",
+    "answer": "<p>trackBy is a function used with *ngFor to optimize rendering performance by helping Angular track items in a list.</p><h3>Why Use trackBy:</h3><ul><li>Improves performance with large lists</li><li>Prevents unnecessary DOM updates</li><li>Maintains component state</li></ul><h3>Example:</h3><pre><code>// Without trackBy\n<div *ngFor='let user of users'>\n  {{ user.name }}\n</div>\n\n// With trackBy\n<div *ngFor='let user of users; trackBy: trackByFn'>\n  {{ user.name }}\n</div>\n\n// In component\ntrackByFn(index: number, item: User): number {\n  return item.id; // or any unique identifier\n}</code></pre><h3>Real-world Example:</h3><pre><code>@Component({\n  selector: 'app-user-list',\n  template: `\n    <div *ngFor='let user of users; trackBy: trackByFn'>\n      <app-user-card [user]='user'></app-user-card>\n    </div>\n  `\n})\nexport class UserListComponent {\n  users: User[] = [];\n\n  trackByFn(index: number, user: User): number {\n    return user.id;\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 122,
+    "question": "What are Preloading Strategies in Angular and how do they work?",
+    "answer": "<p>Preloading strategies determine how Angular loads lazy-loaded modules. They help balance between initial load time and user experience.</p><h3>Types of Preloading Strategies:</h3><ul><li>NoPreloading (default)</li><li>PreloadAllModules</li><li>Custom strategies</li></ul><h3>Example:</h3><pre><code>// Using PreloadAllModules\n@NgModule({\n  imports: [\n    RouterModule.forRoot(routes, {\n      preloadingStrategy: PreloadAllModules\n    })\n  ]\n})\nexport class AppModule { }\n\n// Custom Preloading Strategy\n@Injectable({\n  providedIn: 'root'\n})\nexport class CustomPreloadingStrategy implements PreloadingStrategy {\n  preload(route: Route, load: () => Observable<any>): Observable<any> {\n    if (route.data && route.data['preload']) {\n      return load();\n    }\n    return of(null);\n  }\n}\n\n// Using custom strategy\nconst routes: Routes = [\n  {\n    path: 'admin',\n    loadChildren: () => import('./admin/admin.module'),\n    data: { preload: true }\n  }\n];</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 123,
+    "question": "What is the difference between Renderer2 and ElementRef in Angular?",
+    "answer": "<p>Renderer2 and ElementRef are both used to manipulate the DOM, but they serve different purposes and have different security implications.</p><h3>ElementRef:</h3><ul><li>Direct access to DOM element</li><li>Less secure</li><li>Should be used carefully</li></ul><h3>Renderer2:</h3><ul><li>Platform-agnostic DOM manipulation</li><li>More secure</li><li>Recommended approach</li></ul><h3>Example:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '<div #myDiv></div>'\n})\nexport class ExampleComponent {\n  @ViewChild('myDiv') div: ElementRef;\n\n  constructor(private renderer: Renderer2) {}\n\n  // Using ElementRef (not recommended)\n  updateWithElementRef() {\n    this.div.nativeElement.style.backgroundColor = 'red';\n  }\n\n  // Using Renderer2 (recommended)\n  updateWithRenderer() {\n    this.renderer.setStyle(\n      this.div.nativeElement,\n      'backgroundColor',\n      'red'\n    );\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 124,
+    "question": "How do you secure an Angular application?",
+    "answer": "<p>Securing an Angular application involves multiple layers of protection.</p><h3>Key Security Measures:</h3><ul><li>Use HTTPS</li><li>Implement authentication</li><li>Prevent XSS attacks</li><li>Use Content Security Policy</li><li>Implement proper CORS</li></ul><h3>Example:</h3><pre><code>// HTTP Interceptor for Authentication\n@Injectable()\nexport class AuthInterceptor implements HttpInterceptor {\n  intercept(req: HttpRequest<any>, next: HttpHandler) {\n    const token = this.authService.getToken();\n    \n    if (token) {\n      const authReq = req.clone({\n        headers: req.headers.set('Authorization', `Bearer ${token}`)\n      });\n      return next.handle(authReq);\n    }\n    return next.handle(req);\n  }\n}\n\n// Content Security Policy\n// index.html\n<meta http-equiv='Content-Security-Policy'\n  content=\"default-src 'self'; script-src 'self' 'unsafe-inline';\">\n\n// Sanitizing user input\n@Component({\n  selector: 'app-example',\n  template: '<div [innerHTML]='sanitizedContent'></div>'\n})\nexport class ExampleComponent {\n  constructor(private sanitizer: DomSanitizer) {}\n\n  sanitizeContent(content: string) {\n    return this.sanitizer.bypassSecurityTrustHtml(content);\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 125,
+    "question": "What is a Progressive Web App (PWA) in Angular and how do you implement it?",
+    "answer": "<p>A PWA is a web application that can work offline and provide a native app-like experience.</p><h3>Key Features:</h3><ul><li>Offline functionality</li><li>Push notifications</li><li>Installable on devices</li></ul><h3>Implementation:</h3><pre><code>// 1. Add PWA support\nng add @angular/pwa\n\n// 2. Configure manifest.webmanifest\n{\n  \"name\": \"My PWA App\",\n  \"short_name\": \"PWA App\",\n  \"theme_color\": \"#1976d2\",\n  \"background_color\": \"#fafafa\",\n  \"display\": \"standalone\",\n  \"scope\": \"./\",\n  \"start_url\": \"./\",\n  \"icons\": [\n    {\n      \"src\": \"assets/icons/icon-72x72.png\",\n      \"sizes\": \"72x72\",\n      \"type\": \"image/png\"\n    }\n  ]\n}\n\n// 3. Service Worker Registration\n// app.module.ts\n@NgModule({\n  imports: [\n    ServiceWorkerModule.register('ngsw-worker.js', {\n      enabled: environment.production\n    })\n  ]\n})\nexport class AppModule { }</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 126,
+    "question": "What is Tree Shaking in Angular and how does it work?",
+    "answer": "<p>Tree shaking is a process that removes unused code from the final bundle, reducing the application size.</p><h3>How it Works:</h3><ul><li>Analyzes code dependencies</li><li>Removes unused exports</li><li>Works with ES modules</li></ul><h3>Example:</h3><pre><code>// This will be included\nimport { Component } from '@angular/core';\n\n// This might be tree-shaken if unused\nimport { unused } from './unused';\n\n@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent {\n  // Only used code is included\n  usedMethod() {\n    // Implementation\n  }\n}\n\n// This will be tree-shaken\nfunction unusedFunction() {\n  // Implementation\n}</code></pre><h3>Best Practices:</h3><pre><code>// Use named exports\n// Good - can be tree-shaken\nexport const used = 'used';\nexport const unused = 'unused';\n\n// Bad - can't be tree-shaken\nexport default {\n  used: 'used',\n  unused: 'unused'\n};</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 127,
+    "question": "How do you optimize initial performance in an Angular application?",
+    "answer": "<p>Optimizing initial performance involves several strategies to reduce load time and improve user experience.</p><h3>Key Optimization Techniques:</h3><ul><li>Lazy loading</li><li>Preloading strategies</li><li>Bundle optimization</li><li>Server-side rendering</li></ul><h3>Example:</h3><pre><code>// 1. Lazy Loading\nconst routes: Routes = [\n  {\n    path: 'admin',\n    loadChildren: () => import('./admin/admin.module')\n  }\n];\n\n// 2. Bundle Optimization\n// angular.json\n{\n  \"optimization\": {\n    \"scripts\": true,\n    \"styles\": true,\n    \"fonts\": true\n  }\n}\n\n// 3. Preloading Strategy\n@NgModule({\n  imports: [\n    RouterModule.forRoot(routes, {\n      preloadingStrategy: PreloadAllModules\n    })\n  ]\n})\nexport class AppModule { }</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 128,
+    "question": "What is the difference between ActivatedRoute and Router in Angular?",
+    "answer": "<p>ActivatedRoute and Router serve different purposes in Angular routing.</p><h3>ActivatedRoute:</h3><ul><li>Accesses route parameters</li><li>Gets route data</li><li>Accesses child routes</li></ul><h3>Router:</h3><ul><li>Navigates between routes</li><li>Manages route configuration</li><li>Handles route events</li></ul><h3>Example:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent implements OnInit {\n  constructor(\n    private route: ActivatedRoute,\n    private router: Router\n  ) {}\n\n  ngOnInit() {\n    // Using ActivatedRoute\n    this.route.params.subscribe(params => {\n      const id = params['id'];\n    });\n\n    this.route.data.subscribe(data => {\n      const resolvedData = data['resolvedData'];\n    });\n  }\n\n  // Using Router\n  navigateToUser(id: number) {\n    this.router.navigate(['/users', id]);\n  }\n\n  navigateWithQuery() {\n    this.router.navigate(['/users'], {\n      queryParams: { filter: 'active' }\n    });\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 129,
+    "question": "What are the different types of Route Guards in Angular?",
+    "answer": "<p>Route Guards are interfaces that control access to routes in Angular.</p><h3>Types of Guards:</h3><ul><li>CanActivate</li><li>CanDeactivate</li><li>Resolve</li><li>CanActivateChild</li><li>CanMatch</li></ul><h3>Example:</h3><pre><code>// CanActivate Guard\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthGuard implements CanActivate {\n  canActivate(): boolean {\n    return this.authService.isAuthenticated();\n  }\n}\n\n// CanDeactivate Guard\n@Injectable({\n  providedIn: 'root'\n})\nexport class UnsavedChangesGuard implements CanDeactivate<EditComponent> {\n  canDeactivate(component: EditComponent): boolean {\n    if (component.hasUnsavedChanges()) {\n      return confirm('You have unsaved changes. Leave anyway?');\n    }\n    return true;\n  }\n}\n\n// Resolve Guard\n@Injectable({\n  providedIn: 'root'\n})\nexport class UserResolver implements Resolve<User> {\n  resolve(): Observable<User> {\n    return this.userService.getUser();\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 130,
+    "question": "What is Server-Side Rendering (SSR) in Angular and how do you implement it?",
+    "answer": "<p>SSR renders Angular applications on the server, improving initial load time and SEO.</p><h3>Implementation:</h3><pre><code>// 1. Add SSR support\nng add @nguniversal/express-engine\n\n// 2. app.server.module.ts\n@NgModule({\n  imports: [\n    AppModule,\n    ServerModule\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppServerModule { }\n\n// 3. app.component.ts\n@Component({\n  selector: 'app-root',\n  template: `\n    <div>\n      <h1>{{ title }}</h1>\n      <div *ngIf='isBrowser'>Browser only content</div>\n    </div>\n  `\n})\nexport class AppComponent {\n  isBrowser: boolean;\n\n  constructor(@Inject(PLATFORM_ID) platformId: Object) {\n    this.isBrowser = isPlatformBrowser(platformId);\n  }\n}\n\n// 4. Running the application\n// package.json\n{\n  \"scripts\": {\n    \"dev:ssr\": \"ng run my-app:serve-ssr\",\n    \"build:ssr\": \"ng build && ng run my-app:server\",\n    \"serve:ssr\": \"node dist/my-app/server/main.js\"\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 131,
+    "question": "What is the difference between AOT and JIT compilation in Angular?",
+    "answer": "<p>AOT (Ahead-of-Time) and JIT (Just-in-Time) are two different ways Angular compiles your application.</p><h3>Key Differences:</h3><ul><li>AOT compiles at build time</li><li>JIT compiles at runtime</li><li>AOT is faster and more secure</li><li>JIT is better for development</li></ul><h3>Example:</h3><pre><code>// AOT Compilation (Production)\n// angular.json\n{\n  \"configurations\": {\n    \"production\": {\n      \"aot\": true,\n      \"optimization\": true\n    }\n  }\n}\n\n// JIT Compilation (Development)\n// main.ts\nplatformBrowserDynamic().bootstrapModule(AppModule);\n\n// AOT Compilation\n// main.ts\nplatformBrowser().bootstrapModule(AppModule);</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 132,
+    "question": "What is the difference between providedIn: 'root' and @NgModule.providers?",
+    "answer": "<p>Both approaches provide services in Angular, but they have different scopes and use cases.</p><h3>providedIn: 'root':</h3><ul><li>Singleton service</li><li>Available application-wide</li><li>Tree-shakeable</li></ul><h3>@NgModule.providers:</h3><ul><li>Module-scoped service</li><li>Can have multiple instances</li><li>Not tree-shakeable</li></ul><h3>Example:</h3><pre><code>// Root-level service\n@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n  // Available everywhere\n}\n\n// Module-level service\n@Injectable()\nexport class ModuleService {\n  // Only available in this module\n}\n\n@NgModule({\n  providers: [ModuleService]\n})\nexport class FeatureModule { }</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 133,
+    "question": "How do you architect a large-scale Angular application?",
+    "answer": "<p>Architecting a large-scale Angular application requires careful planning and organization.</p><h3>Key Principles:</h3><ul><li>Feature modules</li><li>Lazy loading</li><li>Shared modules</li><li>Core module</li><li>State management</li></ul><h3>Example Structure:</h3><pre><code>src/\n  app/\n    core/\n      services/\n      guards/\n      interceptors/\n    shared/\n      components/\n      directives/\n      pipes/\n    features/\n      auth/\n      users/\n      products/\n    app.module.ts\n    app-routing.module.ts\n\n// Core Module\n@NgModule({\n  providers: [\n    AuthService,\n    AuthGuard,\n    HTTP_INTERCEPTORS\n  ]\n})\nexport class CoreModule { }\n\n// Shared Module\n@NgModule({\n  declarations: [\n    SharedComponent,\n    SharedDirective,\n    SharedPipe\n  ],\n  exports: [\n    SharedComponent,\n    SharedDirective,\n    SharedPipe\n  ]\n})\nexport class SharedModule { }</code></pre>",
+    "category": "Angular",
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 134,
+    "question": "What are some commonly used RxJS operators in Angular?",
+    "answer": "<p>RxJS operators are used to transform, filter, and combine observables in Angular.</p><h3>Common Operators:</h3><ul><li>map</li><li>filter</li><li>switchMap</li><li>catchError</li><li>debounceTime</li></ul><h3>Example:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent {\n  constructor(private userService: UserService) {}\n\n  // Using map\n  getUsers() {\n    return this.userService.getUsers().pipe(\n      map(users => users.map(user => user.name))\n    );\n  }\n\n  // Using switchMap\n  getUserDetails(id: number) {\n    return this.userService.getUser(id).pipe(\n      switchMap(user => this.userService.getUserDetails(user.id))\n    );\n  }\n\n  // Using debounceTime\n  searchUsers(term: string) {\n    return this.userService.searchUsers(term).pipe(\n      debounceTime(300),\n      distinctUntilChanged()\n    );\n  }\n\n  // Using catchError\n  getData() {\n    return this.userService.getData().pipe(\n      catchError(error => {\n        console.error('Error:', error);\n        return of([]);\n      })\n    );\n  }\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 135,
+    "question": "What is takeUntil in RxJS and how do you use it?",
+    "answer": "<p>takeUntil is an RxJS operator used to automatically unsubscribe from observables when a component is destroyed.</p><h3>Usage:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent implements OnInit, OnDestroy {\n  private destroy$ = new Subject<void>();\n\n  constructor(private userService: UserService) {}\n\n  ngOnInit() {\n    // Using takeUntil\n    this.userService.getUsers()\n      .pipe(takeUntil(this.destroy$))\n      .subscribe(users => {\n        // Handle users\n      });\n\n    // Multiple subscriptions\n    this.userService.getData()\n      .pipe(takeUntil(this.destroy$))\n      .subscribe(data => {\n        // Handle data\n      });\n  }\n\n  ngOnDestroy() {\n    this.destroy$.next();\n    this.destroy$.complete();\n  }\n}</code></pre><h3>Alternative Approach:</h3><pre><code>// Using async pipe (preferred)\n@Component({\n  selector: 'app-example',\n  template: `\n    <div *ngIf='users$ | async as users'>\n      <div *ngFor='let user of users'>\n        {{ user.name }}\n      </div>\n    </div>\n  `\n})\nexport class ExampleComponent {\n  users$ = this.userService.getUsers();\n\n  constructor(private userService: UserService) {}\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
   }
 ]
