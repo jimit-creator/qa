@@ -4,18 +4,25 @@ import Stats from './components/Stats';
 import { useQuestions } from './hooks/useQuestions';
 import QuestionCard from './components/QuestionCard';
 import ScrollToTop from './components/ScrollToTop';
+import Pagination from './components/Pagination';
 import type { Question } from './types/Question';
 
 function App() {
   const {
     questions,
     filteredQuestions,
+    totalQuestions,
     filters,
     setFilters,
     resetFilters,
     categories,
     difficulties,
     loading,
+    currentPage,
+    setCurrentPage,
+    pageSize,
+    setPageSize,
+    totalPages,
   } = useQuestions();
 
   const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);
@@ -63,18 +70,29 @@ function App() {
             </button>
           </div>
         ) : (
-          <div className="grid gap-4 sm:gap-6">
-            {filteredQuestions.map((question) => (
-              <QuestionCard
-                key={question.id}
-                question={question}
-                isExpanded={selectedQuestion?.id === question.id}
-                onClick={() => setSelectedQuestion(
-                  selectedQuestion?.id === question.id ? null : question
-                )}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid gap-4 sm:gap-6">
+              {filteredQuestions.map((question) => (
+                <QuestionCard
+                  key={question.id}
+                  question={question}
+                  isExpanded={selectedQuestion?.id === question.id}
+                  onClick={() => setSelectedQuestion(
+                    selectedQuestion?.id === question.id ? null : question
+                  )}
+                />
+              ))}
+            </div>
+
+            {/* Pagination */}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              pageSize={pageSize}
+              onPageChange={setCurrentPage}
+              onPageSizeChange={setPageSize}
+            />
+          </>
         )}
       </div>
       <ScrollToTop />
