@@ -3,6 +3,7 @@ import { FilterBar } from './components/FilterBar';
 import Stats from './components/Stats';
 import { useQuestions } from './hooks/useQuestions';
 import QuestionCard from './components/QuestionCard';
+import ScrollToTop from './components/ScrollToTop';
 import type { Question } from './types/Question';
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
           </div>
         )}
       </div>
+      <ScrollToTop />
     </div>
   );
 }
