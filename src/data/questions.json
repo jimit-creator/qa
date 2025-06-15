@@ -618,7 +618,9 @@
   {
     "id": 88,
     "question": "How to find records with the most recent date in each group?",
-    "answer": "<p>Finding the most recent records in each group is a common requirement. Here are different approaches:</p><h3>Using Window Functions:</h3><pre><code>-- Most recent order for each customer\nSELECT *\nFROM (\n    SELECT *,\n           ROW_NUMBER() OVER (\n               PARTITION BY customer_id\n               ORDER BY order_date DESC\n           ) as rn\n    FROM orders\n) ranked\nWHERE rn = 1;</code></pre><h3>Using Correlated Subquery:</h3><pre><code>-- Most recent order for each customer\nSELECT o.*\nFROM orders o\nWHERE o.order_date = (\n    SELECT MAX(order_date)\n    FROM orders o2\n    WHERE o2.customer_id = o.customer_id\n);</code></pre><h3>Using JOIN:</h3><pre><code>-- Most recent order for each customer\nSELECT o.*\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) as max_date\n    FROM orders\n    GROUP BY customer_id\n) latest ON o.customer_id = latest.customer_id\n    AND o.order_date = latest.max_date;</code></pre><h3>Using DISTINCT ON (PostgreSQL):</h3><pre><code>-- Most recent order for each customer\nSELECT DISTINCT ON (customer_id) *\nFROM orders\nORDER BY customer_id, order_date DESC;</code></pre>"
+    "answer": "<p>Finding the most recent records in each group is a common requirement. Here are different approaches:</p><h3>Using Window Functions:</h3><pre><code>-- Most recent order for each customer\nSELECT *\nFROM (\n    SELECT *,\n           ROW_NUMBER() OVER (\n               PARTITION BY customer_id\n               ORDER BY order_date DESC\n           ) as rn\n    FROM orders\n) ranked\nWHERE rn = 1;</code></pre><h3>Using Correlated Subquery:</h3><pre><code>-- Most recent order for each customer\nSELECT o.*\nFROM orders o\nWHERE o.order_date = (\n    SELECT MAX(order_date)\n    FROM orders o2\n    WHERE o2.customer_id = o.customer_id\n);</code></pre><h3>Using JOIN:</h3><pre><code>-- Most recent order for each customer\nSELECT o.*\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) as max_date\n    FROM orders\n    GROUP BY customer_id\n) latest ON o.customer_id = latest.customer_id\n    AND o.order_date = latest.max_date;</code></pre><h3>Using DISTINCT ON (PostgreSQL):</h3><pre><code>-- Most recent order for each customer\nSELECT DISTINCT ON (customer_id) *\nFROM orders\nORDER BY customer_id, order_date DESC;</code></pre>",
+    "category": "Database",
+    "difficulty": "Beginner"
   },
   {
     "id": 89,
@@ -946,6 +948,13 @@
     "id": 135,
     "question": "What is takeUntil in RxJS and how do you use it?",
     "answer": "<p>takeUntil is an RxJS operator used to automatically unsubscribe from observables when a component is destroyed.</p><h3>Usage:</h3><pre><code>@Component({\n  selector: 'app-example',\n  template: '...'\n})\nexport class ExampleComponent implements OnInit, OnDestroy {\n  private destroy$ = new Subject<void>();\n\n  constructor(private userService: UserService) {}\n\n  ngOnInit() {\n    // Using takeUntil\n    this.userService.getUsers()\n      .pipe(takeUntil(this.destroy$))\n      .subscribe(users => {\n        // Handle users\n      });\n\n    // Multiple subscriptions\n    this.userService.getData()\n      .pipe(takeUntil(this.destroy$))\n      .subscribe(data => {\n        // Handle data\n      });\n  }\n\n  ngOnDestroy() {\n    this.destroy$.next();\n    this.destroy$.complete();\n  }\n}</code></pre><h3>Alternative Approach:</h3><pre><code>// Using async pipe (preferred)\n@Component({\n  selector: 'app-example',\n  template: `\n    <div *ngIf='users$ | async as users'>\n      <div *ngFor='let user of users'>\n        {{ user.name }}\n      </div>\n    </div>\n  `\n})\nexport class ExampleComponent {\n  users$ = this.userService.getUsers();\n\n  constructor(private userService: UserService) {}\n}</code></pre>",
+    "category": "Angular",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 136,
+    "question": "Introduction ",
+    "answer": "<p>My name is Jimit Hothi. I have over 9 years of experience in the software development industry. I’ve worked on multiple domains and technologies. I specialize in JavaScript, Node.js, and building scalable web applications.I have experience in both frontend and backend technologies. I’m also familiar with tools like Git, NPM, and modern frameworks like Angular. Over the years, I’ve handled team coordination, client communication, and project delivery, so I’m comfortable working independently or as part of a team. I believe in continuous learning and always try to keep myself updated with the latest technologies.</p>",
     "category": "Angular",
     "difficulty": "Intermediate"
   }
