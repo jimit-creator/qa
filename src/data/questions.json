@@ -170,119 +170,119 @@
   {
     "id": 25,
     "question": "What is Angular?",
-		"answer": "<p>Angular is a front-end web framework made by Google to build <strong>single-page web applications (SPA)</strong> using <strong>HTML, CSS, and TypeScript</strong>.</p>",
+    "answer": "<p>Angular is a front-end web framework made by Google to build <strong>single-page web applications (SPA)</strong> using <strong>HTML, CSS, and TypeScript</strong>.</p>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 26,
     "question": "What is a component in Angular?",
-		"answer": "<p>A component is the basic building block of an Angular application. It controls a part of the screen called a <strong>view</strong>.</p><pre><code>@Component({\n  selector: 'app-hello',\n  template: '&lt;h1&gt;Hello World!&lt;/h1&gt;'\n})\nexport class HelloComponent { }</code></pre>",
+    "answer": "<p>A component is the basic building block of an Angular application. It controls a part of the screen called a <strong>view</strong>.</p><pre><code>@Component({\n  selector: 'app-hello',\n  template: '&lt;h1&gt;Hello World!&lt;/h1&gt;'\n})\nexport class HelloComponent { }</code></pre>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 27,
     "question": "What is a module in Angular?",
-		"answer": "<p>A module is a container that holds related components, services, and other modules. Every Angular app has a root module called <code>AppModule</code>.</p><pre><code>@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }</code></pre>",
+    "answer": "<p>A module is a container that holds related components, services, and other modules. Every Angular app has a root module called <code>AppModule</code>.</p><pre><code>@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }</code></pre>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 28,
     "question": "What is data binding?",
-			"answer": "<p>Data binding is the connection between the HTML and the component (TypeScript code). It helps keep your UI and logic in sync.</p><p><strong>Types:</strong></p><ul><li><strong>Interpolation</strong> – <code>{{ name }}</code></li><li><strong>Property binding</strong> – <code>[src]=\"imageUrl\"</code></li><li><strong>Event binding</strong> – <code>(click)=\"sayHello()\"</code></li><li><strong>Two-way binding</strong> – <code>[(ngModel)]=\"userInput\"</code></li></ul>",
+    "answer": "<p>Data binding is the connection between the HTML and the component (TypeScript code). It helps keep your UI and logic in sync.</p><p><strong>Types:</strong></p><ul><li><strong>Interpolation</strong> – <code>{{ name }}</code></li><li><strong>Property binding</strong> – <code>[src]=\"imageUrl\"</code></li><li><strong>Event binding</strong> – <code>(click)=\"sayHello()\"</code></li><li><strong>Two-way binding</strong> – <code>[(ngModel)]=\"userInput\"</code></li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 29,
     "question": "What is dependency injection?",
-			"answer": "<p>Dependency injection is a design pattern used to provide services (like APIs, logic, etc.) to components automatically.</p><pre><code>constructor(private userService: UserService) { }</code></pre>",
+    "answer": "<p>Dependency injection is a design pattern used to provide services (like APIs, logic, etc.) to components automatically.</p><pre><code>constructor(private userService: UserService) { }</code></pre>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 30,
     "question": "What is a service in Angular?",
-			"answer": "<p>A service is a class used to write business logic, such as fetching data from an API. It can be shared across multiple components.</p><pre><code>@Injectable({ providedIn: 'root' })\nexport class ApiService {\n  getData() {\n    return this.http.get('/api/data');\n  }\n}</code></pre>",
+    "answer": "<p>A service is a class used to write business logic, such as fetching data from an API. It can be shared across multiple components.</p><pre><code>@Injectable({ providedIn: 'root' })\nexport class ApiService {\n  getData() {\n    return this.http.get('/api/data');\n  }\n}</code></pre>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 31,
     "question": "What is routing in Angular?",
-			"answer": "<p>Routing is how Angular navigates between different pages or views in a single-page app.</p><pre><code>const routes: Routes = [\n  { path: 'home', component: HomeComponent },\n  { path: 'about', component: AboutComponent }\n];</code></pre>",
+    "answer": "<p>Routing is how Angular navigates between different pages or views in a single-page app.</p><pre><code>const routes: Routes = [\n  { path: 'home', component: HomeComponent },\n  { path: 'about', component: AboutComponent }\n];</code></pre>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 32,
     "question": "What are directives?",
-			"answer": "<p>Directives are instructions in the template that tell Angular how to render or change elements.</p><p><strong>Types:</strong></p><ul><li><strong>Structural</strong> – <code>*ngIf</code>, <code>*ngFor</code></li><li><strong>Attribute</strong> – <code>[ngClass]</code>, <code>[ngStyle]</code></li><li><strong>Custom</strong> – You can create your own directive.</li></ul>",
+    "answer": "<p>Directives are instructions in the template that tell Angular how to render or change elements.</p><p><strong>Types:</strong></p><ul><li><strong>Structural</strong> – <code>*ngIf</code>, <code>*ngFor</code></li><li><strong>Attribute</strong> – <code>[ngClass]</code>, <code>[ngStyle]</code></li><li><strong>Custom</strong> – You can create your own directive.</li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 33,
     "question": "What is the difference between ngIf and ngFor?",
-			"answer": "<ul><li><code>*ngIf</code> is used to <strong>show or hide</strong> an element.</li><li><code>*ngFor</code> is used to <strong>loop through a list</strong> and create multiple elements.</li></ul><pre><code>&lt;p *ngIf=\"isLoggedIn\"&gt;Welcome!&lt;/p&gt;\n&lt;ul&gt;\n  &lt;li *ngFor=\"let item of items\"&gt;{{ item }}&lt;/li&gt;\n&lt;/ul&gt;</code></pre>",
+    "answer": "<ul><li><code>*ngIf</code> is used to <strong>show or hide</strong> an element.</li><li><code>*ngFor</code> is used to <strong>loop through a list</strong> and create multiple elements.</li></ul><pre><code>&lt;p *ngIf=\"isLoggedIn\"&gt;Welcome!&lt;/p&gt;\n&lt;ul&gt;\n  &lt;li *ngFor=\"let item of items\"&gt;{{ item }}&lt;/li&gt;\n&lt;/ul&gt;</code></pre>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 34,
     "question": "What is a pipe in Angular?",
-			"answer": "<p>Pipes are used to transform data in the template</p><pre><code>&lt;p&gt;{{ birthday | date:'longDate' }}&lt;/p&gt;\n&lt;p&gt;{{ price | currency:'USD' }}&lt;/p&gt;</code></pre>",
+    "answer": "<p>Pipes are used to transform data in the template</p><pre><code>&lt;p&gt;{{ birthday | date:'longDate' }}&lt;/p&gt;\n&lt;p&gt;{{ price | currency:'USD' }}&lt;/p&gt;</code></pre>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 35,
     "question": "What is the difference between @Input() and @Output()?",
-			"answer": "<ul><li><code>@Input()</code> – Pass data <strong>from parent to child</strong> component.</li><li><code>@Output()</code> – Send data <strong>from child to parent</strong> component using <code>EventEmitter</code>.</li></ul>",
+    "answer": "<ul><li><code>@Input()</code> – Pass data <strong>from parent to child</strong> component.</li><li><code>@Output()</code> – Send data <strong>from child to parent</strong> component using <code>EventEmitter</code>.</li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 36,
     "question": "What is lazy loading?",
-			"answer": "<p>Lazy loading means loading a module <strong>only when it's needed</strong>, not at the start. It helps improve performance.</p>",
+    "answer": "<p>Lazy loading means loading a module <strong>only when it's needed</strong>, not at the start. It helps improve performance.</p>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 37,
     "question": "What is Angular CLI?",
-			"answer": "<p>Angular CLI is a command-line tool to create and manage Angular apps.</p><p><strong>Example commands:</strong></p><ul><li><code>ng new my-app</code> – create a new app</li><li><code>ng serve</code> – run the app</li><li><code>ng generate component header</code> – create a component</li></ul>",
+    "answer": "<p>Angular CLI is a command-line tool to create and manage Angular apps.</p><p><strong>Example commands:</strong></p><ul><li><code>ng new my-app</code> – create a new app</li><li><code>ng serve</code> – run the app</li><li><code>ng generate component header</code> – create a component</li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 38,
     "question": "How do you share data between components?",
-			"answer": "<ul><li><strong>Parent to Child</strong> – use <code>@Input()</code></li><li><strong>Child to Parent</strong> – use <code>@Output()</code></li><li><strong>Sibling components</strong> – use a <strong>shared service</strong></li><li><strong>Across app</strong> – use <strong>NgRx</strong> or shared services</li></ul>",
+    "answer": "<ul><li><strong>Parent to Child</strong> – use <code>@Input()</code></li><li><strong>Child to Parent</strong> – use <code>@Output()</code></li><li><strong>Sibling components</strong> – use a <strong>shared service</strong></li><li><strong>Across app</strong> – use <strong>NgRx</strong> or shared services</li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 39,
     "question": "What is Ahead-of-Time (AOT) Compilation?",
-			"answer": "<p>Angular offers two types of compilation:</p><ul><li><strong>JIT (Just-in-Time):</strong> Compiles in the browser (during development)</li><li><strong>AOT (Ahead-of-Time):</strong> Compiles during build time (for production)</li></ul>",
+    "answer": "<p>Angular offers two types of compilation:</p><ul><li><strong>JIT (Just-in-Time):</strong> Compiles in the browser (during development)</li><li><strong>AOT (Ahead-of-Time):</strong> Compiles during build time (for production)</li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 40,
     "question": "What are lifecycle hooks in Angular?",
-			"answer": "<p>Lifecycle hooks are special methods Angular calls at different stages of a component's life — from creation to destruction.</p><ul><li><code>constructor</code>When the component is created (used for simple setup)</li><li><code>ngOnChanges()</code>When an input property changes</li><li><code>ngOnInit()</code>After the first <code>ngOnChanges</code> – good for API calls</li><li><code>ngDoCheck()</code>Custom change detection (called often)</li><li><code>ngAfterContentInit()</code>After external content is projected into the component</li><li><code>ngAfterContentChecked()</code>After every check of projected content</li><li><code>ngAfterViewInit()</code>After component view (and child views) are initialized</li><li><code>ngAfterViewChecked()</code>After every check of the component and child views</li><li><code>ngOnDestroy()</code>Just before the component is destroyed – cleanup time</li></ul>",
+    "answer": "<p>Lifecycle hooks are special methods Angular calls at different stages of a component's life — from creation to destruction.</p><ul><li><code>constructor</code>When the component is created (used for simple setup)</li><li><code>ngOnChanges()</code>When an input property changes</li><li><code>ngOnInit()</code>After the first <code>ngOnChanges</code> – good for API calls</li><li><code>ngDoCheck()</code>Custom change detection (called often)</li><li><code>ngAfterContentInit()</code>After external content is projected into the component</li><li><code>ngAfterContentChecked()</code>After every check of projected content</li><li><code>ngAfterViewInit()</code>After component view (and child views) are initialized</li><li><code>ngAfterViewChecked()</code>After every check of the component and child views</li><li><code>ngOnDestroy()</code>Just before the component is destroyed – cleanup time</li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
   {
     "id": 41,
     "question": "What is the difference between Observable and Promise?",
-			"answer": "<p><strong>Observable</strong></p><ul><li>Can emit <strong>multiple values</strong></li><li>it can be <strong>Cancelable</strong></li><li>its <strong>Lazy </strong>(runs only when subscribed)</li></ul><p><strong>Promise</strong></p><ul><li>Emits <strong>one value</strong> only</li><li>it can not be <strong>Cancelable</strong></li><li>its <strong>Lazy</strong></li></ul>",
+    "answer": "<p><strong>Observable</strong></p><ul><li>Can emit <strong>multiple values</strong></li><li>it can be <strong>Cancelable</strong></li><li>its <strong>Lazy </strong>(runs only when subscribed)</li></ul><p><strong>Promise</strong></p><ul><li>Emits <strong>one value</strong> only</li><li>it can not be <strong>Cancelable</strong></li><li>its <strong>Lazy</strong></li></ul>",
     "category": "Angular",
     "difficulty": "Beginner"
   },
@@ -1020,5 +1020,12 @@
     "answer": "<p>Git submodules allow you to include other Git repositories within your project.</p><h3>Common Use Cases:</h3><ul><li>Including shared libraries</li><li>Managing third-party dependencies</li><li>Organizing large projects</li></ul><h3>Basic Commands:</h3><pre><code># Add a submodule\n$ git submodule add https://github.com/username/repo.git path/to/submodule\n\n# Initialize submodules after cloning\n$ git submodule init\n$ git submodule update\n\n# Clone repository with submodules\n$ git clone --recursive https://github.com/username/repo.git\n\n# Update all submodules\n$ git submodule update --remote\n\n# Remove submodule\n$ git submodule deinit path/to/submodule\n$ git rm path/to/submodule</code></pre><h3>Best Practices:</h3><ul><li>Use submodules for stable, versioned dependencies</li><li>Document submodule usage in README</li><li>Consider using package managers for simpler dependency management</li><li>Keep submodules up to date</li></ul>",
     "category": "Git",
     "difficulty": "Advanced"
+  },
+  {
+    "id": 146,
+    "question": "Introduction ",
+    "answer": "<p>My name is Jimit Hothi. I have over 9 years of experience in the software development industry. I've worked on multiple domains and technologies. I specialize in JavaScript, Node.js, and building scalable web applications.I have experience in both frontend and backend technologies. I'm also familiar with tools like Git, NPM, and modern frameworks like Angular. Over the years, I've handled team coordination, client communication, and project delivery, so I'm comfortable working independently or as part of a team. I believe in continuous learning and always try to keep myself updated with the latest technologies.</p>",
+    "category": "General",
+    "difficulty": "Intermediate"
   }
 ]
