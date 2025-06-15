@@ -11,7 +11,6 @@ function App() {
   const {
     questions,
     filteredQuestions,
-    totalQuestions,
     filters,
     setFilters,
     resetFilters,
